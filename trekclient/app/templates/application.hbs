@@ -1,6 +1,23 @@
-<div class="container">
-    {{partial 'navbar'}}
-    <div class="container-fluid">
-        {{outlet}}
+<div class="container-fluid">
+    <div class="firstrow">
+    <div class="row">
+        <div class="col-sm-12">
+            {{partial 'navbar'}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3 col-lg-2">
+            <nav class="collapse navbar-collapse" id="main-navbar">
+                <ul class="nav nav-pills nav-stacked">
+                    {{#nav-link-to 'index'}}Home{{/nav-link-to}}
+                    {{#nav-link-to 'treks.new'}}Create New Trek{{/nav-link-to}}
+ <!--                   {{#nav-link-to ''}}Manage Recording Team Members{{/nav-link-to}}-->
+                </ul>
+            </nav>
+        </div>
+        <div class="col-sm-9 col-lg-10">
+            {{outlet}}
+        </div>
+    </div>
     </div>
 </div>

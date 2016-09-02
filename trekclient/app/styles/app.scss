@@ -1,3 +1,4 @@
+@import "_variables";
 @import "bootstrap";
 
 body {
@@ -8,6 +9,13 @@ body {
 //     overflow-y: scroll;
 // }
 
-.container {
-    width: 100%;
+.container-fluid {
+    margin-right: 15px !important;
+    margin-left: 15px !important;
+}
+
+// BS3 navbar-fixed-top will not work for this navbar without messing up the layout
+.navbar-fixed-top {
+    margin-right: 25px !important;
+    margin-left: 25px !important;
 }
