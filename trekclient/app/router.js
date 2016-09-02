@@ -7,9 +7,13 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('home');
+  
   this.route('treks', function() {
     this.route('new');
   });
+
+  this.route('people');
 });
 
 export default Router;

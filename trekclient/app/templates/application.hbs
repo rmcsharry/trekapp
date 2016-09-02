@@ -9,14 +9,16 @@
         <div class="col-sm-3 col-lg-2">
             <nav class="collapse navbar-collapse" id="main-navbar">
                 <ul class="nav nav-pills nav-stacked">
-                    {{#nav-link-to 'index'}}Home{{/nav-link-to}}
+                    {{#nav-link-to 'home'}}Home{{/nav-link-to}}
                     {{#nav-link-to 'treks.new'}}Create New Trek{{/nav-link-to}}
- <!--                   {{#nav-link-to ''}}Manage Recording Team Members{{/nav-link-to}}-->
+                    {{#nav-link-to 'people'}}Manage Recording Team Members{{/nav-link-to}}
                 </ul>
             </nav>
         </div>
         <div class="col-sm-9 col-lg-10">
-            {{outlet}}
+            <div class="maincontent">
+                {{outlet}}
+            </div>
         </div>
     </div>
     </div>
