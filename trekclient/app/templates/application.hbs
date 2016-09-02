@@ -10,13 +10,13 @@
             <nav class="collapse navbar-collapse" id="main-navbar">
                 <ul class="nav nav-pills nav-stacked">
                     {{#nav-link-to 'home'}}Home{{/nav-link-to}}
-                    {{#nav-link-to 'treks.new'}}Create New Trek{{/nav-link-to}}
-                    {{#nav-link-to 'people'}}Manage Recording Team Members{{/nav-link-to}}
+                    {{#nav-link-to 'treks'}}Manage Treks{{/nav-link-to}}
+                    {{#nav-link-to 'people'}}Manage Team Members{{/nav-link-to}}
                 </ul>
             </nav>
         </div>
         <div class="col-sm-9 col-lg-10">
-            <div class="maincontent">
+            <div class="container-fluid">
                 {{outlet}}
             </div>
         </div>
