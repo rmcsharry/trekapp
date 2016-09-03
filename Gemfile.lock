@@ -1,3 +1,14 @@
+GIT
+  remote: git://github.com/thoughtbot/ember-cli-rails.git
+  revision: d1498e1811494ac04242fc4fe1fcd2f6a1d982ab
+  branch: support-api-controller
+  specs:
+    ember-cli-rails (0.8.0)
+      cocaine (~> 0.5.8)
+      ember-cli-rails-assets (~> 0.6.2)
+      html_page (~> 0.1.0)
+      railties (>= 3.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -24,6 +35,11 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
+    active_model_serializers (0.10.2)
+      actionpack (>= 4.1, < 6)
+      activemodel (>= 4.1, < 6)
+      jsonapi (~> 0.1.1.beta2)
+      railties (>= 4.1, < 6)
     activejob (5.0.0.1)
       activesupport (= 5.0.0.1)
       globalid (>= 0.3.6)
@@ -41,12 +57,21 @@ GEM
     arel (7.1.1)
     builder (3.2.2)
     byebug (9.0.5)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.8)
+      climate_control (>= 0.0.3, < 1.0)
     concurrent-ruby (1.0.2)
+    ember-cli-rails-assets (0.6.2)
     erubis (2.7.0)
     ffi (1.9.14)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
+    html_page (0.1.0)
     i18n (0.7.0)
+    json (1.8.3)
+    jsonapi (0.1.1.beta2)
+      json (~> 1.8)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -120,7 +145,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_model_serializers (~> 0.10.2)
   byebug
+  ember-cli-rails!
   listen (~> 3.0.5)
   pg (~> 0.18)
   puma (~> 3.0)

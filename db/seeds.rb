@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+p1 = Person.create(first_name: 'Michael', last_name: 'Mouse')
+p1 = Person.create(first_name: 'Minnie', last_name: 'Mouse')
+p1 = Person.create(first_name: 'Donald', last_name: 'Duck')
+p1 = Person.create(first_name: 'Donaldo', last_name: 'Duck')
+p1 = Person.create(first_name: 'Ronaldo', last_name: 'Duck')
+p1 = Person.create(first_name: 'Kermit', last_name: 'Frog')
+

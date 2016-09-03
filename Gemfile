@@ -20,6 +20,9 @@ gem 'puma', '~> 3.0'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
+gem 'active_model_serializers', '~> 0.10.2'
+gem "ember-cli-rails", github: "thoughtbot/ember-cli-rails", branch: "support-api-controller"
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
