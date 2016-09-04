@@ -19,3 +19,36 @@ body {
     margin-right: 25px !important;
     margin-left: 25px !important;
 }
+
+// see http://stackoverflow.com/questions/20547819/vertical-align-with-bootstrap-3
+.vertical-align {
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 767px) { 
+    .row.vertical-align {
+        display: block; /* turn off the flexible box layout */
+    }
+}
+
+.personStatus
+    .unknown {
+        color: $gray-lightest;
+    }
+.personStatus    
+    .no-longer-employed {
+        color: $gray-lighter;
+    }
+.personStatus    
+    .standby {
+        color: $brand-warning;
+    }
+.personStatus    
+    .active {
+        color: $brand-success;
+    }
+
+.nav-pills > li.active > a:hover {
+    background: darken($brand-primary, 15%);
+}
