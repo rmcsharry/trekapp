@@ -8,6 +8,7 @@ class CreateAddresses < ActiveRecord::Migration[5.0]
       t.string :province
       t.string :postal_code
       t.string :country
+      t.string :country_code
       t.integer :addressable_id
       t.string :addressable_type
 

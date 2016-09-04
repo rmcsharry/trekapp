@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20160904160459) do
     t.string   "province"
     t.string   "postal_code"
     t.string   "country"
+    t.string   "country_code"
     t.integer  "addressable_id"
     t.string   "addressable_type"
     t.datetime "created_at",       null: false

@@ -49,6 +49,7 @@ module FakingIt
     def initialize
       self.report = Reporter.new
       clean!
+      #Faker::Config.locale = 'en-GB'
     end
 
     # create employees
@@ -79,7 +80,8 @@ module FakingIt
         city: Faker::Address.city,
         province: Faker::Address.state,
         postal_code: Faker::Address.postcode,
-        country: Faker::Address.country
+        country: Faker::Address.country,
+        country_code: Faker::Address.country_code
       }
     end
 
