@@ -8,12 +8,15 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('home');
-  
+
   this.route('treks', function() {
     this.route('new');
   });
 
-  this.route('people');
+  this.route('people', function() {
+    this.route('list');
+  });
+  this.route('people.list');
 });
 
 export default Router;
