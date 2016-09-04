@@ -11,5 +11,5 @@ export default DS.Model.extend({
   distance: DS.attr('number'),
   distanceType: DS.attr(),
   
-  people: DS.hasMany('person'),
+  employees: DS.hasMany('employee'),
 });

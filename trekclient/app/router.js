@@ -13,10 +13,10 @@ Router.map(function() {
     this.route('new');
   });
 
-  this.route('people', function() {
-    this.route('list');
+  this.route('employees', function() {
+    this.route('new');
   });
-  this.route('people.list');
+  
 });
 
 export default Router;

@@ -1,5 +1,5 @@
 <div class="list-group">
-    {{#each sortedPeople as |person|}}
+    {{#each sortedEmployees as |employee|}}
         <a href="#" class="list-group-item">
             <div class="row vertical-align">
                 <div class="col-xs-2 col-sm-1">
@@ -10,11 +10,11 @@
                     </div>
                 </div>
                 <div class="col-xs-10 col-sm-6">
-                    <h2>{{person.fullName}}</h2>
+                    <h2>{{employee.fullName}}</h2>
                     <p>Home Base : Boulder, Colrado, USA</p>
                 </div>
                 <div class="col-xs-6 col-sm-2">
-                    {{person-status statusText=person.status}}
+                    {{employee-status statusText=employee.status}}
                 </div>
                 <div class="col-xs-6 col-sm-2">
                     <h5 class="text-right"># active / pending treks</h5>
