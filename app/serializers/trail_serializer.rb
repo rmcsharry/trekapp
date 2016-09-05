@@ -16,4 +16,7 @@ class TrailSerializer < ActiveModel::Serializer
     return object.distance_type.dasherize
   end
 
+  def updated_at
+    object.updated_at.to_date
+  end
 end

@@ -6,12 +6,12 @@ export default DS.Model.extend({
   province: DS.attr(),
   countryCode: DS.attr(),  
   regionType: DS.attr(),
-  agency: DS.hasMany(),  
+  agency: DS.attr(),  
   website: DS.attr(),
   distanceValue: DS.attr('number'),
   distanceUnit: DS.attr(),
   distanceType: DS.attr(),
-  updatedAt: DS.attr('date'),
+  updatedAt: DS.attr(),
   
   employees: DS.hasMany('employee'),
 });

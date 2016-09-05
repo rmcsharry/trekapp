@@ -1,0 +1,40 @@
+<div class="panel panel-default trek-card">
+    <div class="panel-heading">
+        <h3 class="panel-title pull-left">
+            {{trail.name}}
+        </h3>
+        <div class="pull-right category-box difficulty-icon{{trail.difficulty}}">
+            []
+        </div> 
+        <div class="clearfix">
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="media">
+            <div class="media-left">
+                <a href="#">
+                <img class="media-object" src="..." alt="...">
+                </a>
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">{{trail.agency}}</h4>
+                <h5>{{trail.province}}</h5>
+                <h5>{{trail.countryCode}}</h5>
+                <p>{{trail.distanceValue}}&nbsp;{{trail.distanceUnit}} | {{trail.distanceType}}</p>
+                <button class="btn btn-default text-right">View Trek</button>
+            </div>
+        </div>                 
+    </div>
+    <div class="panel-footer">
+        <div class="pull-left">            
+            x comments | x admin notes
+        </div>
+        <div class="pull-right">
+            Recording - Last updated {{trail.updatedAt}}
+            STATUS
+        </div>
+        
+        <div class="clearfix">
+        </div>               
+    </div>
+</div>
