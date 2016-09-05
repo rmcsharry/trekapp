@@ -20,6 +20,19 @@ body {
     margin-left: 25px !important;
 }
 
+.nav.nav-center {
+    display: inline-block;
+    left: 0;
+    right: 0;
+    margin-top: 20px;
+    float:none;
+}
+
+.navbar-inner{
+    text-align:center;
+}
+
+
 // see http://stackoverflow.com/questions/20547819/vertical-align-with-bootstrap-3
 .vertical-align {
     display: flex;
