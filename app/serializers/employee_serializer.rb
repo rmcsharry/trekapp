@@ -1,5 +1,6 @@
 class EmployeeSerializer < PersonSerializer
   attributes :status, :status_code
+  
   def status
     return object.status.dasherize
   end

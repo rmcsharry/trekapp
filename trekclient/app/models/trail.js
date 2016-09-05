@@ -11,6 +11,7 @@ export default DS.Model.extend({
   distanceValue: DS.attr('number'),
   distanceUnit: DS.attr(),
   distanceType: DS.attr(),
+  updatedAt: DS.attr('date'),
   
   employees: DS.hasMany('employee'),
 });

@@ -42,14 +42,13 @@ module FakingIt
 
   class Builder
 
-    FAKEABLE = %w(Employee Address)
+    FAKEABLE = %w(Employee Address Trail)
 
     attr_accessor :report
 
     def initialize
       self.report = Reporter.new
       clean!
-      #Faker::Config.locale = 'en-GB'
     end
 
     def create_data(count=1)
@@ -70,8 +69,11 @@ module FakingIt
         e = Employee.new(attributes)
         e.email = named_email(e.first_name, e.last_name)  # or call random_unique_email
         e.avatar_url = Faker::Avatar.image("#{e.email}", "50x50", "jpg", "set3", "bg1")
-        e.address = Address.new(address)               
+        e.address = Address.new(address)
+        e.updated_at = Faker::Time.backward(14, :all)               
         e.save
+        Employee.where(id: e.id).update_all(updated_at: Faker::Time.backward(14, :all))
+        Address.where(id: e.address.id).update_all(updated_at: Faker::Time.backward(7,:all))      
       end
 
       self.report.increment(:employees, count)
@@ -107,8 +109,9 @@ module FakingIt
           # Faker::Address.latitude 
         }
 
-        t = Trail.new(attributes)
+        t = Trail.new(attributes) 
         t.save
+        Trail.where(id: t.id).update_all(updated_at: Faker::Time.backward(14, :all))
       end
 
       self.report.increment(:trails, count)
