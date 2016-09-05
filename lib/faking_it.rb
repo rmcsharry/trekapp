@@ -52,8 +52,13 @@ module FakingIt
       #Faker::Config.locale = 'en-GB'
     end
 
+    def create_data(count=1)
+      employees(count)
+      trails(count)
+    end
+
     # create employees
-    def employees(count = 1)
+    def employees(count)
       1.upto(count) do 
         attributes = {
           first_name: Faker::Name.first_name,
@@ -84,6 +89,28 @@ module FakingIt
         country: Faker::Address.country,
         country_code: Faker::Address.country_code
       }
+    end
+
+    def trails(count=1)
+      1.upto(count) do 
+        attributes = {
+          name: Faker::Company.name,
+          description: Faker::Lorem.paragraph(2, false, 4),
+          province: Faker::Address.state,
+          country_code: Faker::Address.country_code,
+          region_type: Faker::StarWars.planet,
+          agency: Faker::Space.agency,
+          website: Faker::Internet.url,
+          distance_value: Faker::Number.decimal(2),
+          distance_unit: 'km'
+          # Faker::Address.latitude 
+        }
+
+        t = Trail.new(attributes)
+        t.save
+      end
+
+      self.report.increment(:trails, count)
     end
 
     # create products (can be free)

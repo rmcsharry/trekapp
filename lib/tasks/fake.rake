@@ -7,13 +7,13 @@ namespace :db do
 
     case args[:option]
       when 's'
-        faking.employees(10)
+        faking.create_data(10)
       when 'm'
-        faking.employees(50)
+        faking.create_data(50)
       when 'l'
-        faking.employees(100)        
+        faking.create_data(500)        
       else
-        faking.employees
+        faking.create_data
     end
 
     # report
