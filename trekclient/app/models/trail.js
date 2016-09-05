@@ -10,6 +10,7 @@ export default DS.Model.extend({
   website: DS.attr(),
   distanceValue: DS.attr('number'),
   distanceUnit: DS.attr(),
+  distanceType: DS.attr(),
   
   employees: DS.hasMany('employee'),
 });
