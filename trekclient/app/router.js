@@ -9,7 +9,7 @@ const Router = Ember.Router.extend({
 Router.map(function() {
   this.route('home');
 
-  this.route('treks', function() {
+  this.route('trails', function() {
     this.route('new');
   });
 
