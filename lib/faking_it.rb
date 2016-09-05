@@ -12,7 +12,8 @@ module FakingIt
   # INSTRUCTIONS
   # 1 put this file into lib/faking_it.rb
   # 2 put the code below into lib/tasks/fake.rake
-  # 3 call 'rake db:fake' [1 record will be created] or pass s,m,l
+  # 3 call 'rake db:fake' [1 record will be created - useful for testing changes] 
+  # Create small, medium or large datasets by passing s,m,l eg db:rake[m]
   # -------------------
   #
   # lib/tasks/fake.rake
@@ -20,25 +21,26 @@ module FakingIt
   # require 'faking_it'
   #
   # namespace :db do
-  #   desc "Faking data into db (pass s, m or l for 10, 50, 100 records, eg: db:rake[m] creates 50 records)"
+  #   desc "Faking data into db"
   #   task :fake, [:option] => [:environment] do |t, args|
   #     faking = FakingIt::Builder.new
   #
   #     case args[:option]
   #       when 's'
-  #         faking.employees(10)
+  #         faking.create_data(10)
   #       when 'm'
-  #         faking.employees(50)
+  #         faking.create_data(50)
   #       when 'l'
-  #         faking.employees(100)        
+  #         faking.create_data(500)        
   #       else
-  #         faking.employees
+  #         faking.create_data
   #     end
   #
   #     # report
   #     puts "Faked!\n#{faking.report}"
   #   end
   # end
+
 
   class Builder
 
@@ -57,14 +59,14 @@ module FakingIt
     end
 
     # create employees
-    def employees(count)
+    def employees(count, options = {})
       1.upto(count) do 
         attributes = {
           first_name: Faker::Name.first_name,
           last_name: Faker::Name.last_name,
           phone: Faker::PhoneNumber.phone_number,
           status: Random.rand(4)
-        }
+        }.merge(options)
 
         e = Employee.new(attributes)
         e.email = named_email(e.first_name, e.last_name)  # or call random_unique_email
@@ -80,7 +82,7 @@ module FakingIt
       self.report.increment(:addresses, count)
     end
 
-    def address
+    def address(options = {})
       # for other address type examples, see: https://github.com/stympy/faker/wiki/Address
       attributes = {
         line1: Faker::Address.street_address,
@@ -90,10 +92,10 @@ module FakingIt
         postal_code: Faker::Address.postcode,
         country: Faker::Address.country,
         country_code: Faker::Address.country_code
-      }
+      }.merge(options)
     end
 
-    def trails(count=1)
+    def trails(count, options = {})
       1.upto(count) do 
         attributes = {
           name: Faker::Company.name,
@@ -107,7 +109,7 @@ module FakingIt
           distance_unit: 'km',
           distance_type: Random.rand(4)
           # Faker::Address.latitude 
-        }
+        }.merge(options)
 
         t = Trail.new(attributes) 
         t.save
