@@ -1,16 +1,19 @@
-<div class="row">
+<div class="row vertical-align">
     <div class="col-xs-2 col-sm-2 pull-left">
-        <p>x results</p>
+        <h4>{{count}} result(s)</h4>
     </div>
-    <div class="col-xs-2 col-sm-2 pull-right">
-        <button class="btn btn-primary">Filter</button>
+    <div class="col-xs-8 col-sm-8">
+        &nbsp;
+    </div>
+    <div class="col-xs-2 col-sm-2 clearfix">
+        <button class="btn btn-primary pull-right">Filter by...</button>
     </div>
 </div>
-
+&nbsp;
 <div class="list-group">
-    {{#each sortedTrails as |trail|}}
+    {{#each trailsList as |trail|}}
         <a href="#" class="list-group-item">
-            <div class="row">
+            <div class="row vertical-align">
                 <div class="col-xs-12 col-sm-12">
                     <div class="media-left vertical-align">
                         <img class="media-object" src="...}" alt="...">
@@ -21,4 +24,4 @@
         </a>
     {{/each}}
 </div>
-{{yield}}
+
