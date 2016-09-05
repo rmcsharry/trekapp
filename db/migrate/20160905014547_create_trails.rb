@@ -10,6 +10,7 @@ class CreateTrails < ActiveRecord::Migration[5.0]
       t.string :website
       t.string :distance_value
       t.string :distance_unit
+      t.integer :distance_type
 
       t.timestamps
     end

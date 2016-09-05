@@ -1,3 +1,3 @@
 class TrailSerializer < ActiveModel::Serializer
-  attributes :id, :name, :description, :province, :country_code, :region_type, :agency, :website, :distance_value, :distance_unit
+  attributes :id, :name, :description, :province, :country_code, :region_type, :agency, :website, :distance_value, :distance_unit, :distance_type    
 end

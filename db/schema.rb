@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20160905014547) do
     t.string   "website"
     t.string   "distance_value"
     t.string   "distance_unit"
+    t.integer  "distance_type"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
