@@ -12,11 +12,12 @@ module FakingIt
   # INSTRUCTIONS
   # 1 put this file into lib/faking_it.rb
   # 2 put the code below into lib/tasks/fake.rake
-  # 3 call 'rake db:fake' [1 record will be created - useful for testing changes] 
-  # Create small, medium or large datasets by passing s,m,l eg db:rake[m]
+  # 3 call 'rake db:fake' [1 record will be created - useful for testing changes]
+  #
+  # Create small, medium or large datasets by passing s,m,l - eg db:rake[m]
   # -------------------
   #
-  # lib/tasks/fake.rake
+  # lib/tasks/fake.rake [change the 10,50,1000 to whatever sizes you need for s,m,l]
   #
   # require 'faking_it'
   #
@@ -29,9 +30,9 @@ module FakingIt
   #       when 's'
   #         faking.create_data(10)
   #       when 'm'
-  #         faking.create_data(50)
+  #         faking.create_data(500)
   #       when 'l'
-  #         faking.create_data(500)        
+  #         faking.create_data(1000)        
   #       else
   #         faking.create_data
   #     end
@@ -98,7 +99,7 @@ module FakingIt
     def trails(count, options = {})
       1.upto(count) do 
         attributes = {
-          name: Faker::Company.name,
+          name: Faker::Space.nebula,
           description: Faker::Lorem.paragraph(2, false, 4),
           province: Faker::Address.state,
           country_code: Faker::Address.country_code,
@@ -118,19 +119,6 @@ module FakingIt
 
       self.report.increment(:trails, count)
     end
-
-    # create products (can be free)
-    # def products(count = 1, options = {})
-    #   1.upto(count) do
-    #     attributes   = { :name        => Faker::Company.catch_phrase, 
-    #                      :price       => 20+Random.rand(11), 
-    #                      :description => Faker::Lorem.paragraph(2) }.merge(options)
-    #     product      = Product.new(attributes)
-    #     product.name = "Free #{product.name}" if product.free?
-    #     product.save
-    #   end
-    #   self.report.increment(:products, count)
-    # end
 
     # cleans all faked data away
     def clean!
