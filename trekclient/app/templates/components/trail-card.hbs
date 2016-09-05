@@ -9,22 +9,22 @@
         <div class="clearfix">
         </div>
     </div>
-    <div class="panel-body">
-        <div class="media">
-            <div class="media-left">
-                <a href="#">
-                <img class="media-object" src="..." alt="...">
-                </a>
-            </div>
-            <div class="media-body">
-                <h4 class="media-heading">{{trail.agency}}</h4>
-                <h5>{{trail.province}}</h5>
-                <h5>{{trail.countryCode}}</h5>
-                <p>{{trail.distanceValue}}&nbsp;{{trail.distanceUnit}} | {{trail.distanceType}}</p>
-                <button class="btn btn-default text-right">View Trek</button>
-            </div>
-        </div>                 
-    </div>
+    <!-- panel body doesn't really help so leave it out -->
+    <div class="media">
+        <div class="media-left">
+            <a href="#">
+            <img class="media-object" src="{{trail.mapThumbnailUrl}}" alt="Trail route thumbnail">
+            </a>
+        </div>
+        <div class="media-body">
+            <h4 class="media-heading">{{trail.agency}}</h4>
+            <h5>{{trail.province}}</h5>
+            <h5>{{trail.countryCode}}</h5>
+            <p>{{trail.distanceValue}}&nbsp;{{trail.distanceUnit}} | {{trail.distanceType}}</p>
+            <button class="btn btn-default pull-right">View This Trail</button>
+        </div>
+    </div>                 
+
     <div class="panel-footer">
         <div class="pull-left">            
             x comments | x admin notes

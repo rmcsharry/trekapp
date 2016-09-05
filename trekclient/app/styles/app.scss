@@ -28,24 +28,22 @@ body {
     margin-top: 20px;
     float:none;
 }
-
 .navbar-inner{
     text-align:center;
 }
-
 
 // see http://stackoverflow.com/questions/20547819/vertical-align-with-bootstrap-3
 .vertical-align {
     display: flex;
     align-items: center;
 }
-
 @media (max-width: 767px) { 
     .row.vertical-align {
         display: block; /* turn off the flexible box layout */
     }
 }
 
+// used to colour the different enum status for an employee
 .personStatus
     .unknown {
         color: $gray-lightest;
@@ -63,6 +61,22 @@ body {
         color: $brand-success;
     }
 
+// make the navigation pill hover background match the primary button hover bg
 .nav-pills > li.active > a:hover {
     background: darken($brand-primary, 15%);
+}
+
+// adjust the media classes for our needs
+.media {
+    margin-top: 0;
+}
+.media-body {
+    padding-top: 15px;
+    padding-right: 15px;
+}
+
+.panel-default > .panel-heading {
+    background-color: white;
+    padding-top: 14px;
+    padding-bottom: 14px;
 }
