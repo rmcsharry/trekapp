@@ -100,7 +100,7 @@ module FakingIt
       1.upto(count) do 
         attributes = {
           name: Faker::Space.nebula,
-          description: Faker::Lorem.paragraph(2, false, 4),
+          map_thumbnail_url: "http://placehold.it/150x150",
           province: Faker::Address.state,
           country_code: Faker::Address.country_code,
           region_type: Faker::StarWars.planet,

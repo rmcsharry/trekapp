@@ -1,7 +1,7 @@
 class TrailSerializer < ActiveModel::Serializer
   attributes  :id,
               :name,
-              :description,
+              :map_thumbnail_url,
               :province,
               :country_code,
               :region_type,

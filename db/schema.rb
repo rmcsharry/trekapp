@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20160905014547) do
 
   create_table "trails", force: :cascade do |t|
     t.string   "name"
-    t.string   "description"
+    t.string   "map_thumbnail_url"
     t.string   "province"
     t.string   "country_code"
     t.string   "region_type"
@@ -53,8 +53,8 @@ ActiveRecord::Schema.define(version: 20160905014547) do
     t.string   "distance_value"
     t.string   "distance_unit"
     t.integer  "distance_type"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
 end
