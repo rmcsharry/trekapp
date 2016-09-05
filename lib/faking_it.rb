@@ -64,7 +64,7 @@ module FakingIt
           first_name: Faker::Name.first_name,
           last_name: Faker::Name.last_name,
           phone: Faker::PhoneNumber.phone_number,
-          status: random_status
+          status: Random.rand(4)
         }
 
         e = Employee.new(attributes)
@@ -102,7 +102,8 @@ module FakingIt
           agency: Faker::Space.agency,
           website: Faker::Internet.url,
           distance_value: Faker::Number.decimal(2),
-          distance_unit: 'km'
+          distance_unit: 'km',
+          distance_type: Random.rand(4)
           # Faker::Address.latitude 
         }
 
@@ -131,7 +132,6 @@ module FakingIt
       FAKEABLE.map(&:constantize).map(&:destroy_all)
     end
 
-
     private
 
     def pick_random(model)
@@ -146,11 +146,6 @@ module FakingIt
     def random_unique_email
       Faker::Internet.email.gsub('@', "+#{Employee.count}@")
     end
-
-    def random_status
-      Random.rand(4)
-    end
-
   end
 
 
