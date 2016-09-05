@@ -63,8 +63,9 @@ module FakingIt
         }
 
         e = Employee.new(attributes)
-        e.email = named_email(e.first_name, e.last_name)  # or call random_unique_email  
-        e.address = Address.new(address)                    
+        e.email = named_email(e.first_name, e.last_name)  # or call random_unique_email
+        e.avatar_url = Faker::Avatar.image("#{e.email}", "50x50", "jpg", "set3", "bg1")
+        e.address = Address.new(address)               
         e.save
       end
 

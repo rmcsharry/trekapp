@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20160904160459) do
   end
 
   create_table "people", force: :cascade do |t|
+    t.string   "avatar_url"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
