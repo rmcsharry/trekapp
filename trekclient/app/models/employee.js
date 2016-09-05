@@ -4,7 +4,7 @@ import Person from '../models/person';
 
 export default Person.extend({
   status: DS.attr(),
-  statusNumber: DS.attr(),
+  statusCode: DS.attr(),
 
   treks: DS.hasMany('trek'),
 });
