@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "postinstall": "./bin/heroku_install"
+  },
+  "devDependencies": {
+    "bower": "*"
+  },
+  "cacheDirectories": [
+    "trekclient/node_modules",
+    "trekclient/bower_components",
+    "node_modules"
+  ]
+}
