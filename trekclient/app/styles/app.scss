@@ -109,16 +109,32 @@ body {
     padding-bottom: 14px;
 }
 
-.bottom-right-dweller {
-    margin-top: -40px;
-    margin-right: 10px;
-}
-
 .row.remove-margins {
     margin: 0px;
 }
 
-// following styles used in trail card footer
+// following styles used in the trailcard
+.trailcard-bg {
+    position:relative;
+    z-index:0; // this is what allows us to see the background in the after element
+}
+.trailcard-bg::after {
+    z-index: -1;
+    content:"";
+    top: 0;
+    left: 150px;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    opacity: 0.1;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('images/mountains-bg.jpg');
+}
+.btn-trailcard {
+    background: transparent;
+    margin-top: 45px;
+}
 .panel-footer.trailcard-footer {
     padding:0px;
 }
