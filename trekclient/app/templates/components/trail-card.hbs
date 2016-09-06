@@ -13,7 +13,12 @@
     <div class="media">
         <div class="media-left">
             <a href="#">
-            <img class="media-object" src="{{trail.mapThumbnailUrl}}" alt="Trail route thumbnail">
+                <div class="placeholder150150">
+                    <img class="media-object" src="{{trail.mapThumbnailUrl}}" alt="Trail route thumbnail">
+                </div>
+                <div class="placeholder15050">            
+                    <img class="media-object" src="{{trail.elevationThumbnailUrl}}" alt="Trail route thumbnail">
+                </div>        
             </a>
         </div>
         <div class="media-body">
@@ -21,20 +26,34 @@
             <h5>{{trail.province}}</h5>
             <h5>{{trail.countryCode}}</h5>
             <p>{{trail.distanceValue}}&nbsp;{{trail.distanceUnit}} | {{trail.distanceType}}</p>
-            <button class="btn btn-default pull-right">View This Trail</button>
+            <div>
+                RECORDER PLACEHOLDER
+            </div>
+           
         </div>
+        <button class="btn btn-default bottom-right-dweller pull-right">View This Trail</button>
     </div>                 
 
-    <div class="panel-footer">
-        <div class="pull-left">            
-            x comments | x admin notes
-        </div>
-        <div class="pull-right">
-            Recording - Last updated {{trail.updatedAt}}
-            STATUS
-        </div>
-        
-        <div class="clearfix">
-        </div>               
-    </div>
+    <div class="panel-footer trailcard-footer">
+        <div class="row remove-margins">
+            <div class="col-xs-10">
+                <ul class="list-inline trailcard-footer">
+                    <li class="col-xs-12">
+                        <span class="pull-right"> 
+                            <span>
+                                Recording - Last updated {{trail.updatedAt}}
+                            </span>
+                        </span>
+                        <span>
+                            x comments | x admin notes
+                        </span>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-2 status-text-bg text-center {{trail.publishStatus}}">
+                <h4 class="status-text all-caps">{{trail.publishStatus}}</h4>                
+            </div>
+        </div> <!-- row -->
+    </div> <!-- panel footer -->
+
 </div>

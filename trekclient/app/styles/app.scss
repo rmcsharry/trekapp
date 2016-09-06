@@ -9,6 +9,34 @@ body {
 //     overflow-y: scroll;
 // }
 
+.placeholder150150 {
+    width: 152px;
+    height: 152px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: whitesmoke;
+    border: 1px;
+    border-style: solid;
+    border-color: $gray-light;
+}
+.placeholder150150::after {
+    content: 'loading...'
+}
+
+.placeholder15050 {
+    width: 152px;
+    height: 52px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: whitesmoke;
+    border: 1px;
+    border-style: solid;
+    border-color: $gray-light;    
+}
+.placeholder150150::after {
+    content: 'loading...'
+}
+
 .container-fluid {
     margin-right: 15px !important;
     margin-left: 15px !important;
@@ -79,4 +107,42 @@ body {
     background-color: white;
     padding-top: 14px;
     padding-bottom: 14px;
+}
+
+.bottom-right-dweller {
+    margin-top: -40px;
+    margin-right: 10px;
+}
+
+.row.remove-margins {
+    margin: 0px;
+}
+
+// following styles used in trail card footer
+.panel-footer.trailcard-footer {
+    padding:0px;
+}
+.list-inline.trailcard-footer {
+    padding-top: 12px;
+}
+.status-text-bg {
+    background-color: $gray-lighter;    
+    border: 1px;
+    border-style: solid;
+    border-color: $gray-light;
+    padding-top: 2px;
+    padding-bottom: 2px;    
+}
+.status-text {
+    font-size: 1.1em;
+    color: white;
+}
+.status-text-bg.published {
+    background-color: $brand-primary;
+}
+.status-text-bg.draft {
+    background-color: $gray-light;
+}
+.all-caps {
+    text-transform: uppercase;
 }

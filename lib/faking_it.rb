@@ -101,6 +101,7 @@ module FakingIt
         attributes = {
           name: Faker::Space.nebula,
           map_thumbnail_url: "http://placehold.it/150x150",
+          elevation_thumbnail_url: "http://placehold.it/150x50",
           province: Faker::Address.state,
           country_code: Faker::Address.country_code,
           region_type: Faker::StarWars.planet,
@@ -108,7 +109,8 @@ module FakingIt
           website: Faker::Internet.url,
           distance_value: Faker::Number.decimal(2),
           distance_unit: 'km',
-          distance_type: Random.rand(4)
+          distance_type: Random.rand(4),
+          publish_status: Random.rand(3)
           # Faker::Address.latitude 
         }.merge(options)
 

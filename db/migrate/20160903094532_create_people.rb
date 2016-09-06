@@ -7,7 +7,7 @@ class CreatePeople < ActiveRecord::Migration[5.0]
       t.string :email
       t.string :phone
       
-      t.integer :status, default: 0, null: false
+      t.integer :status, default: 0, null: false # used for enum
 
       t.timestamps
     end

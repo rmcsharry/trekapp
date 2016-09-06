@@ -3,6 +3,7 @@ class CreateTrails < ActiveRecord::Migration[5.0]
     create_table :trails do |t|
       t.string :name
       t.string :map_thumbnail_url
+      t.string :elevation_thumbnail_url
       t.string :province
       t.string :country_code
       t.string :region_type
@@ -10,7 +11,8 @@ class CreateTrails < ActiveRecord::Migration[5.0]
       t.string :website
       t.string :distance_value
       t.string :distance_unit
-      t.integer :distance_type
+      t.integer :distance_type, default: 0, null: false # used for enum
+      t.integer :publish_status, default: 0, null: false # used for enum
 
       t.timestamps
     end
