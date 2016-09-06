@@ -110,7 +110,7 @@ module FakingIt
           distance_value: Faker::Number.decimal(2),
           distance_unit: 'km',
           distance_type: Random.rand(4),
-          publish_status: Random.rand(3)
+          publish_status: Random.rand(2)
           # Faker::Address.latitude 
         }.merge(options)
 

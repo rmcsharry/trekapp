@@ -53,10 +53,10 @@ ActiveRecord::Schema.define(version: 20160905014547) do
     t.string   "website"
     t.string   "distance_value"
     t.string   "distance_unit"
-    t.integer  "distance_type"
-    t.integer  "publish_status"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.integer  "distance_type",           default: 0, null: false
+    t.integer  "publish_status",          default: 0, null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
 end
