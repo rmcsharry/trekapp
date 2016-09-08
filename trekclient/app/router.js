@@ -17,7 +17,7 @@ Router.map(function() {
     this.route('new');
   });
 
-  this.route('note');
+  this.route('notes');
 });
 
 export default Router;
