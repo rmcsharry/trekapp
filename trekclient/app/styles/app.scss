@@ -2,7 +2,7 @@
 @import "bootstrap";
 
 body {
-    padding-top: 20px;
+  padding-top: 20px;
 }
 
 // html {
@@ -10,156 +10,156 @@ body {
 // }
 
 .placeholder150150 {
-    width: 152px;
-    height: 152px;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-color: whitesmoke;
-    border: 1px;
-    border-style: solid;
-    border-color: $gray-light;
+  width: 152px;
+  height: 152px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: whitesmoke;
+  border: 1px;
+  border-style: solid;
+  border-color: $gray-light;
 }
 .placeholder150150::after {
-    content: 'loading...'
+  content: 'loading...'
 }
 
 .placeholder15050 {
-    width: 152px;
-    height: 52px;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-color: whitesmoke;
-    border: 1px;
-    border-style: solid;
-    border-color: $gray-light;    
+  width: 152px;
+  height: 52px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: whitesmoke;
+  border: 1px;
+  border-style: solid;
+  border-color: $gray-light;    
 }
 .placeholder150150::after {
-    content: 'loading...'
+  content: 'loading...'
 }
 
 .container-fluid {
-    margin-right: 15px !important;
-    margin-left: 15px !important;
+  margin-right: 15px !important;
+  margin-left: 15px !important;
 }
 
 // BS3 navbar-fixed-top will not work for this navbar without messing up the layout
 .navbar-fixed-top {
-    margin-right: 25px !important;
-    margin-left: 25px !important;
+  margin-right: 25px !important;
+  margin-left: 25px !important;
 }
 
 // specifically next two nav styles are used to center the text in the middle of the navbar
 .nav.nav-center {
-    display: inline-block;
-    left: 0;
-    right: 0;
-    margin-top: 20px;
-    float:none;
+  display: inline-block;
+  left: 0;
+  right: 0;
+  margin-top: 20px;
+  float:none;
 }
 .navbar-inner{
-    text-align:center;
+  text-align:center;
 }
 
 // see http://stackoverflow.com/questions/20547819/vertical-align-with-bootstrap-3
 .vertical-align {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 @media (max-width: 767px) { 
-    .row.vertical-align {
-        display: block; /* turn off the flexible box layout */
-    }
+  .row.vertical-align {
+    display: block; /* turn off the flexible box layout */
+  }
 }
 
 // used to colour the different enum status for an employee
 .personStatus
-    .unknown {
-        color: $gray-lightest;
-    }
+  .unknown {
+    color: $gray-lightest;
+  }
 .personStatus    
-    .no-longer-employed {
-        color: $gray-lighter;
-    }
+  .no-longer-employed {
+    color: $gray-lighter;
+  }
 .personStatus    
-    .standby {
-        color: $brand-warning;
-    }
+  .standby {
+    color: $brand-warning;
+  }
 .personStatus    
-    .active {
-        color: $brand-success;
-    }
+  .active {
+    color: $brand-success;
+  }
 
 // make the navigation pill hover background match the primary button hover bg
 .nav-pills > li.active > a:hover {
-    background: darken($brand-primary, 15%);
+  background: darken($brand-primary, 15%);
 }
 
 // adjust the media classes for our needs
 .media {
-    margin-top: 0;
+  margin-top: 0;
 }
 .media-body {
-    padding-top: 15px;
-    padding-right: 15px;
+  padding-top: 15px;
+  padding-right: 15px;
 }
 
 .panel-default > .panel-heading {
-    background-color: white;
-    padding-top: 14px;
-    padding-bottom: 14px;
+  background-color: white;
+  padding-top: 14px;
+  padding-bottom: 14px;
 }
 
 .row.remove-margins {
-    margin: 0px;
+  margin: 0px;
 }
 
 // following styles used in the trailcard
 .trailcard-bg {
-    position: relative;
-    z-index: 0; // this is what allows us to see the background in the after element
+  position: relative;
+  z-index: 0; // this is what allows us to see the background in the after element
 }
 .trailcard-bg::after {
-    z-index: -1;
-    content: "";
-    top: 0;
-    left: 150px;
-    bottom: 0;
-    right: 0;
-    position: absolute;
-    opacity: 0.2;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-image: url('images/mountains-bg.jpg');
+  z-index: -1;
+  content: "";
+  top: 0;
+  left: 150px;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  opacity: 0.2;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('images/mountains-bg.jpg');
 }
 .btn-trailcard {
-    background: transparent;
-    margin-top: 45px;
-    border-color: $gray-light;
+  background: transparent;
+  margin-top: 45px;
+  border-color: $gray-light;
 }
 .panel-footer.trailcard-footer {
-    padding:0px;
+  padding:0px;
 }
 .list-inline.trailcard-footer {
-    padding-top: 12px;
+  padding-top: 12px;
 }
 .status-text-bg {
-    background-color: $gray-lighter;    
-    border: 1px;
-    border-style: solid;
-    border-color: $gray-light;
-    padding-top: 2px;
-    padding-bottom: 2px;    
+  background-color: $gray-lighter;    
+  border: 1px;
+  border-style: solid;
+  border-color: $gray-light;
+  padding-top: 2px;
+  padding-bottom: 2px;    
 }
 .status-text {
-    font-size: 1.1em;
-    color: white;
+  font-size: 1.1em;
+  color: white;
 }
 .status-text-bg.published {
-    background-color: $brand-primary;
+  background-color: $brand-primary;
 }
 .status-text-bg.draft {
-    background-color: $gray-light;
+  background-color: $gray-light;
 }
 .all-caps {
-    text-transform: uppercase;
+  text-transform: uppercase;
 }

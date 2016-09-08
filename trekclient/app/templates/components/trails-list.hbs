@@ -1,18 +1,17 @@
 <div class="row vertical-align">
-    <div class="col-xs-2 col-sm-2 pull-left">
-        <h4>{{count}} result(s)</h4>
-    </div>
-    <div class="col-xs-8 col-sm-8">
-        &nbsp;
-    </div>
-    <div class="col-xs-2 col-sm-2 clearfix">
-        <button class="btn btn-primary pull-right">Filter by...</button>
-    </div>
+	<div class="col-xs-2 col-sm-2 pull-left">
+		<h4>{{count}} result(s)</h4>
+	</div>
+	<div class="col-xs-8 col-sm-8">
+		&nbsp;
+	</div>
+	<div class="col-xs-2 col-sm-2 clearfix">
+		<button class="btn btn-primary pull-right">Filter by...</button>
+	</div>
 </div>
 &nbsp;
 <div class="list-group">
-    {{#each trailsList as |trail|}}
-        {{trail-card trail=trail}}
-    {{/each}}
+	{{#each trailsList as |trail|}}
+		{{trail-card trail=trail}}
+	{{/each}}
 </div>
-
