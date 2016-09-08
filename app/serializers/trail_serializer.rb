@@ -17,6 +17,7 @@ class TrailSerializer < ActiveModel::Serializer
               :notes_count
   
   has_many :notes
+  has_many :comments
 
   def distance_type
     return object.distance_type.dasherize

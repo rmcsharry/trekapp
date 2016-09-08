@@ -16,9 +16,13 @@ export default DS.Model.extend({
   updatedAt: DS.attr(),
   
   notes: DS.hasMany('note', { async: true }),
-  employees: DS.hasMany('employee'),
+  comments: DS.hasMany('comment', { async: true }),  
+  employees: DS.hasMany('employee', { async: true }),
 
   notesCount: Ember.computed('notes', function() {
     return `${this.get('notes.length')}`;
   }),
+  commentsCount: Ember.computed('comments', function() {
+    return `${this.get('comments.length')}`;
+  }),  
 });

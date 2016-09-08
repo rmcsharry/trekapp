@@ -1,4 +1,5 @@
 class CommentSerializer < ActiveModel::Serializer
   attributes :id, :comment_body
-  has_one :trail
+  
+  belongs_to :trail
 end
