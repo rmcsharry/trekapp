@@ -45,7 +45,7 @@ module FakingIt
 
   class Builder
 
-    FAKEABLE = %w(Employee Address Trail)
+    FAKEABLE = %w(Employee Address Note Trail)
 
     attr_accessor :report
 
@@ -115,11 +115,23 @@ module FakingIt
         }.merge(options)
 
         t = Trail.new(attributes) 
+        add_notes(t, Random.rand(5))
         t.save
         Trail.where(id: t.id).update_all(updated_at: Faker::Time.backward(14, :all))
       end
 
       self.report.increment(:trails, count)
+      
+    end
+
+    def add_notes(trail, count)
+      0.upto(count) do
+        attributes = {
+          note_text: Faker::Lorem.paragraphs(Random.rand(3))
+        }
+        trail.notes.new(attributes)
+      end
+      self.report.increment(:notes, count)
     end
 
     # cleans all faked data away

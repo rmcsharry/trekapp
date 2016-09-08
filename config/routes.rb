@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :employees
   resources :addresses
   resources :trails
+  resources :notes
 end

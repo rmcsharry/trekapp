@@ -1,4 +1,5 @@
 class TrailSerializer < ActiveModel::Serializer
+
   attributes  :id,
               :name,
               :map_thumbnail_url,
@@ -12,7 +13,10 @@ class TrailSerializer < ActiveModel::Serializer
               :distance_unit,
               :distance_type,
               :publish_status,
-              :updated_at    
+              :updated_at,
+              :notes_count
+  
+  has_many :notes
 
   def distance_type
     return object.distance_type.dasherize
@@ -24,5 +28,9 @@ class TrailSerializer < ActiveModel::Serializer
 
   def updated_at
     object.updated_at.to_date
+  end
+
+  def notes_count
+    object.notes.size
   end
 end

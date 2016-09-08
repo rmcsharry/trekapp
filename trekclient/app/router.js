@@ -16,7 +16,8 @@ Router.map(function() {
   this.route('employees', function() {
     this.route('new');
   });
-  
+
+  this.route('note');
 });
 
 export default Router;

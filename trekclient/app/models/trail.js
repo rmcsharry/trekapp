@@ -15,5 +15,10 @@ export default DS.Model.extend({
   publishStatus: DS.attr(),
   updatedAt: DS.attr(),
   
+  notes: DS.hasMany('note', { async: true }),
   employees: DS.hasMany('employee'),
+
+  notesCount: Ember.computed('notes', function() {
+    return `${this.get('notes.length')}`;
+  }),
 });
