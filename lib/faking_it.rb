@@ -127,7 +127,7 @@ module FakingIt
     def add_notes(trail, count)
       0.upto(count) do
         attributes = {
-          note_text: Faker::Lorem.paragraphs(Random.rand(3))
+          note_body: Faker::Lorem.paragraphs(Random.rand(3))
         }
         trail.notes.new(attributes)
       end

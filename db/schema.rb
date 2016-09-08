@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20160906201804) do
 
   create_table "notes", force: :cascade do |t|
     t.integer  "trail_id"
-    t.text     "note_text"
+    t.text     "note_body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["trail_id"], name: "index_notes_on_trail_id", using: :btree
