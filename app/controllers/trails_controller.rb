@@ -3,6 +3,11 @@ class TrailsController < ApplicationController
 
   # GET /trails
   def index
+    if params[:page]
+      @trails = Trail.page(params[:page][:number]).per(params[:page][:size])
+    else
+      @trails = Trail.all
+    end  
     @trails = Trail.all
 
     render json: @trails

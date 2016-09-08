@@ -3,7 +3,11 @@ class PeopleController < ApplicationController
 
   # GET /people
   def index
-    @people = Person.all
+    if params[:page]
+      @people = Person.page(params[:page][:number]).per(params[:page][:size])
+    else
+      @people = Person.all
+    end
 
     render json: @people
   end

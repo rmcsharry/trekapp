@@ -3,7 +3,11 @@ class EmployeesController < ApplicationController
 
   # GET /employees
   def index
-    @employees = Employee.all
+    if params[:page]
+      @employees = Employee.page(params[:page][:number]).per(params[:page][:size])
+    else
+      @employees = Employee.all
+    end
 
     render json: @employees
   end
