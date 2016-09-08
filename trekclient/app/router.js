@@ -18,6 +18,7 @@ Router.map(function() {
   });
 
   this.route('notes');
+  this.route('comments');
 });
 
 export default Router;
