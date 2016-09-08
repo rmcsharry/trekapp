@@ -1,5 +1,6 @@
 class Trail < ApplicationRecord
     has_many :notes, dependent: :destroy
+    has_many :comments, dependent: :destroy
 
     default_scope { order("updated_at DESC") }
 

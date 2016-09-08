@@ -45,7 +45,7 @@ module FakingIt
 
   class Builder
 
-    FAKEABLE = %w(Employee Address Note Trail)
+    FAKEABLE = %w(Employee Address Note Comment Trail)
 
     attr_accessor :report
 
@@ -116,6 +116,7 @@ module FakingIt
 
         t = Trail.new(attributes) 
         add_notes(t, Random.rand(5))
+        add_comments(t, Random.rand(20))
         t.save
         Trail.where(id: t.id).update_all(updated_at: Faker::Time.backward(14, :all))
       end
@@ -133,6 +134,16 @@ module FakingIt
       end
       self.report.increment(:notes, count)
     end
+
+    def add_comments(trail, count)
+      0.upto(count) do
+        attributes = {
+          comment_body: Faker::Lorem.paragraphs(1)
+        }
+        trail.comments.new(attributes)
+      end
+      self.report.increment(:comments, count)
+    end    
 
     # cleans all faked data away
     def clean!

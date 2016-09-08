@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :addresses
   resources :trails
   resources :notes
+  resources :comments  
 end
