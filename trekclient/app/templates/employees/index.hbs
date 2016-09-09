@@ -1,3 +1,15 @@
+<div class="row vertical-align">
+	<div class="col-xs-2 col-sm-2 pull-left">
+		<h4>Showing {{model.length}} result(s)</h4><small>of {{model.meta.records}}</small>
+	</div>
+	<div class="col-xs-8 col-sm-8">
+		&nbsp;
+	</div>
+	<div class="col-xs-2 col-sm-2 clearfix">
+		<button class="btn btn-primary pull-right">Filter by...</button>
+	</div>
+</div>
+&nbsp;
 <div class="list-group">
 	{{#each model as |employee|}}
 	<a href="#" class="list-group-item">
