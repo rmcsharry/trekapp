@@ -114,6 +114,12 @@ body {
 }
 
 // following styles used in the trailcard
+.trailcard {
+  opacity: 0.5;
+}
+.trailcard.highlight {
+  opacity: 1;
+}
 .trailcard-bg {
   position: relative;
   z-index: 0; // this is what allows us to see the background in the after element
