@@ -15,7 +15,7 @@ export default Ember.Route.extend(InfinityRoute, {
 
 	actions: {
 		infinityLoad() {
-			this.get('infinityModel').loadMore;
+			this.loadMore();
 		}
 	}
 });
