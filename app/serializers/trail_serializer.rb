@@ -29,4 +29,5 @@ class TrailSerializer < ActiveModel::Serializer
   def updated_at
     object.updated_at.to_date
   end
+  
 end

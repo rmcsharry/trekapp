@@ -26,4 +26,5 @@ export default DS.Model.extend({
   commentsCount: Ember.computed('comments', function() {
     return `${this.get('comments.length')}`;
   }),  
+
 });

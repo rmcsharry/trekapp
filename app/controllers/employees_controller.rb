@@ -9,7 +9,7 @@ class EmployeesController < ApplicationController
       @employees = Employee.all
     end
 
-    render json: @employees, meta: { total: (Employee.count / params[:per_page].to_f).ceil }
+    render json: @employees, meta: { total: (Employee.count / params[:per_page].to_f).ceil, records: Trail.count}
   end
 
   # GET /employees/1
