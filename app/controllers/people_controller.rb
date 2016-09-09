@@ -4,7 +4,7 @@ class PeopleController < ApplicationController
   # GET /people
   def index
     if params[:page]
-      @people = Person.page(params[:page][:number]).per(params[:page][:size])
+      @people = Person.page(params[:page]).per(params[:per_page])
     else
       @people = Person.all
     end

@@ -4,7 +4,7 @@ class TrailsController < ApplicationController
   # GET /trails
   def index
     if params[:page]
-      @trails = Trail.page(params[:page][:number]).per(params[:page][:size])
+      @trails = Trail.page(params[:page]).per(params[:per_page])
     else
       @trails = Trail.all
     end  

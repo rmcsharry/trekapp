@@ -1,5 +1,5 @@
 <div class="list-group">
-	{{#each sortedEmployees as |employee|}}
+	{{#each employeeModel as |employee|}}
 	<a href="#" class="list-group-item">
 		<div class="row vertical-align">
 			<div class="col-xs-3 col-sm-2">
@@ -21,3 +21,4 @@
 	</a>
 	{{/each}}
 </div>
+{{infinity-loader infinityModel=employeeModel}}

@@ -13,8 +13,7 @@ class TrailSerializer < ActiveModel::Serializer
               :distance_unit,
               :distance_type,
               :publish_status,
-              :updated_at,
-              :notes_count
+              :updated_at
   
   has_many :notes
   has_many :comments
@@ -29,9 +28,5 @@ class TrailSerializer < ActiveModel::Serializer
 
   def updated_at
     object.updated_at.to_date
-  end
-
-  def notes_count
-    object.notes.size
   end
 end
