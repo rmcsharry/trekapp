@@ -7,10 +7,9 @@ class TrailsController < ApplicationController
       @trails = Trail.page(params[:page]).per(params[:per_page])
     else
       @trails = Trail.all
-    end  
-    @trails = Trail.all
+    end 
 
-    render json: @trails
+    render json: @trails, meta: { total: (Trail.count / params[:per_page].to_f).ceil }
   end
 
   # GET /trails/1
