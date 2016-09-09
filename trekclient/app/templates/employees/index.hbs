@@ -1,1 +1,24 @@
-{{employees-list employeeModel=model sendThisAction='infinityLoad'}}
+<div class="list-group">
+	{{#each model as |employee|}}
+	<a href="#" class="list-group-item">
+		<div class="row vertical-align">
+			<div class="col-xs-3 col-sm-2">
+				<div class="media-left vertical-align">
+					<img class="media-object" src="{{employee.avatarUrl}}" alt="...">
+				</div>
+			</div>
+			<div class="col-xs-9 col-sm-5">
+				<h2>{{employee.fullName}}</h2>
+				<p>Home Base : {{employee.address.city}}, {{employee.address.province}}, {{employee.address.country_code}}</p>
+			</div>
+			<div class="col-xs-3 col-sm-2">
+				{{employee-status statusText=employee.status}}
+			</div>
+			<div class="col-xs-9 col-sm-2">
+				<h5 class="text-right"># active / pending treks</h5>
+			</div>
+		</div>
+	</a>
+	{{/each}}
+</div>
+{{infinity-loader infinityModel=model}}
