@@ -12,7 +12,7 @@
 &nbsp;
 <div class="list-group">
 	{{#each model as |trail|}}
-		{{trail-card trail=trail class='trailcard'}}
+		{{trail-card trail=trail}}
 	{{/each}}
 </div>
 {{infinity-loader infinityModel=model loadingText="Loading..." loadedText="No more data!"}}
