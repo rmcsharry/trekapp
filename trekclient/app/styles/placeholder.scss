@@ -1,0 +1,28 @@
+// these are used to fill space where images will load, so the UX is smoother
+.placeholder150150 {
+  width: 152px;
+  height: 152px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: whitesmoke;
+  border: 1px;
+  border-style: solid;
+  border-color: $gray-light;
+}
+.placeholder150150::after {
+  content: 'loading...'
+}
+
+.placeholder15050 {
+  width: 152px;
+  height: 52px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: whitesmoke;
+  border: 1px;
+  border-style: solid;
+  border-color: $gray-light;    
+}
+.placeholder150150::after {
+  content: 'loading...'
+}
