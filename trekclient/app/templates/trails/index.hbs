@@ -1,8 +1,8 @@
 <div class="row vertical-align">
-	<div class="col-xs-2 col-sm-2 pull-left">
-		<h4>Showing {{model.length}} result(s)</h4><small>of {{model.meta.records}}</small>
+	<div class="col-xs-4 col-sm-4 pull-left">
+		<h4>Listing {{model.length}} result(s)</h4><small>of {{model.meta.records}}</small>
 	</div>
-	<div class="col-xs-8 col-sm-8">
+	<div class="col-xs-6 col-sm-6">
 		&nbsp;
 	</div>
 	<div class="col-xs-2 col-sm-2 clearfix">
@@ -12,7 +12,7 @@
 &nbsp;
 <div class="list-group">
 	{{#each model as |trail|}}
-		{{trail-card trail=trail}}
+		{{trail-card trail=trail class='trailcard'}}
 	{{/each}}
 </div>
 {{infinity-loader infinityModel=model loadingText="Loading..." loadedText="No more data!"}}
