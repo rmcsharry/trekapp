@@ -8,4 +8,10 @@ export default Ember.Route.extend({
   //     this._super(...arguments);
   //     controller.set('trailsNewRoute', this);
   // },
+
+  actions: {
+    fileAdded() {
+      alert('file dropped');
+    }
+  }
 });

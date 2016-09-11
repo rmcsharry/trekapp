@@ -1,6 +1,6 @@
-<div class="file-uploader">
+<div class="gpx-file-uploader">
   {{#pl-uploader name="gpxFileUploader" for="upload-gpx" extensions="gpx" no-duplicates="true" multiple="false"
-                  onInitOfUploader="onInitOfUploader" onfileadd={{route-action 'fileAdded'}}}} 
+                  onfileadd=(route-action 'fileAdded')
                   as |queue dropzone|}}
     <div class="dropzone text-center" id={{dropzone.id}}>
       {{#if dropzone.active}}

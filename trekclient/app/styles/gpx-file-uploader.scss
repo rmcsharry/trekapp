@@ -1,0 +1,30 @@
+.gpx-file-uploader {
+  padding-top: 15px;
+} 
+.dropzone {
+  width: 100%;
+  height: 152px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: whitesmoke;
+  border: 4px;
+  border-style: dashed;
+  border-color: $gray-lightest;
+}
+.dropzone-body-text {
+  color: $gray-light;
+}
+.is-dragging {
+  border-style: solid;
+  background-color: $gray-lightest;
+  border-color: $gray-lighter;
+  opacity: 0.5;
+}
+.dropzone::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: '';
+}
