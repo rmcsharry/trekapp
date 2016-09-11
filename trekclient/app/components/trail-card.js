@@ -4,6 +4,7 @@ import InViewportMixin from 'ember-in-viewport';
 export default Ember.Component.extend(InViewportMixin, {
   classNames: 'trailcard',
   classNameBindings: [ 'viewportEntered:highlight' ],
+  
   viewportOptionsOverride: Ember.on('didInsertElement', function() {
     Ember.setProperties(this, {
       viewportTolerance: {

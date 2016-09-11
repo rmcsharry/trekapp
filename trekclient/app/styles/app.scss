@@ -68,15 +68,11 @@ body {
   background: darken($brand-primary, 15%);
 }
 
-// input[type="file"] {
-//   position: absolute; left: -99999rem
-// }
-
+// file upload area
 .file-uploader {
   padding-top: 20px;
   margin-top: 30px;
 } 
-
 .dropzone {
   width: 100%;
   height: 152px;
@@ -86,25 +82,21 @@ body {
   border: 4px;
   border-style: dashed;
   border-color: $gray-lightest;
-  opacity: 0.5;
 }
-
-.dropzone-text {
-  z-index: -1;
+.dropzone-body-text {
+  color: $gray-light;
 }
-
 .is-dragging {
   border-style: solid;
   background-color: $gray-lightest;
   border-color: $gray-lighter;
   opacity: 0.5;
 }
-
 .dropzone::after {
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  content: 'here';
+  content: '';
 }

@@ -1,0 +1,29 @@
+<div class="file-uploader">
+  {{#pl-uploader for="upload-gpx" extensions="gpx" onInitOfUploader="onInitOfUploader" onfileadd="addShot" as |queue dropzone|}}
+    <div class="dropzone text-center" id={{dropzone.id}}>
+      {{#if dropzone.active}}
+        {{#if dropzone.valid}}
+          <h2>Drop to upload</h2>
+        {{else}}
+          <h2>Invalid</h2>
+        {{/if}}
+      {{else if queue.length}}
+        <h2>Uploading {{queue.length}} files. ({{queue.progress}}%)</h2>
+      {{else}}
+        <h2>Upload GPX Route</h2>
+        <h4 class="dropzone-body-text">
+          {{#if dropzone.enabled}}
+            Drag and Drop here
+          {{/if}}
+          <br/><br/>
+          - or -
+          <br/><br/>
+          <a id="upload-gpx">click to browse computer</a>
+        </h4>
+      {{/if}}
+    </div>
+  {{/pl-uploader}}  
+</div>
+
+
+
