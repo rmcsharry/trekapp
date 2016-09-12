@@ -18,6 +18,7 @@ export default Ember.Component.extend({
     filepicker.makeDropPane(me[0], {
       multiple: false,
       mimetype: 'text/xml',
+      maxSize: (5 * 1024 * 1024),      
       dragEnter: function () {
         console.log('enter');
         child.addClass('is-dragging');
@@ -44,14 +45,14 @@ export default Ember.Component.extend({
 
   actions: {
     openFilePicker: function () {
+      // remove (just in case there is an error showing already - TODO use a flag)
+      this.$('div:first-child').html('<h2>Upload GPX Route</h2><div class="dropzone-body-text"><h5>Drag and Drop here</h5>- or -<h5>click anywhere here</h5></div>');
+      
       filepicker.pick({
         mimetype: 'text/xml',
         container: 'modal',
         maxSize: (5 * 1024 * 1024),
-        services: ['COMPUTER'],
-        onClose: function () {
-         alert('close');
-      },
+        services: ['COMPUTER']
       },
         function (Blob) {
           alert(replaceHtmlChars(JSON.stringify(Blob)));
