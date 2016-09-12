@@ -1,0 +1,31 @@
+.filestack-uploader {
+  padding: 0px;
+  margin-top: 10px;
+}
+.dropzone {
+  width: 100%;
+  height: 152px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: whitesmoke;
+  border-width: 4px;
+  border-style: dashed;
+  border-color: $gray-lightest;
+}
+.dropzone-body-text {
+  color: $gray-light;
+}
+.dropzone.is-dragging {
+  border-style: solid;
+  background-color: $gray-lightest;
+  border-color: $gray-lighter;
+}
+// this pseudo-class is needed when using HTML5 drag-drop and div has child elements
+.dropzone::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: '';
+}
