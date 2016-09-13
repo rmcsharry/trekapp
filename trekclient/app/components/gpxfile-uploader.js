@@ -7,7 +7,7 @@ export default Ember.Component.extend({
     filepicker.setKey('AN8H8yfYmRoWueVQmTIxNz'); // TODO get from server
   }),
 
-  fileStackUrl: null,
+  uploadedFileUrl: null,
 
   didInsertElement: function () {
     this._super(...arguments);
@@ -53,7 +53,7 @@ export default Ember.Component.extend({
         }
         else {
           child.html('<h2>File successfully processed</h2><br/><h4>Please note the file will not be saved until you complete the form below.</h4>');
-          component.set('fileStackUrl', result['url']);
+          component.set('uploadedFileUrl', result['url']);
         }
       },
       onError: function (type, message) {

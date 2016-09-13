@@ -1,7 +1,7 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('filestack-uploader', 'Integration | Component | filestack uploader', {
+moduleForComponent('gpxfile-uploader', 'Integration | Component | gpxfile uploader', {
   integration: true
 });
 
@@ -9,15 +9,15 @@ test('it renders', function(assert) {
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });
 
-  this.render(hbs`{{filestack-uploader}}`);
+  this.render(hbs`{{gpxfile-uploader}}`);
 
   assert.equal(this.$().text().trim(), '');
 
   // Template block usage:
   this.render(hbs`
-    {{#filestack-uploader}}
+    {{#gpxfile-uploader}}
       template block text
-    {{/filestack-uploader}}
+    {{/gpxfile-uploader}}
   `);
 
   assert.equal(this.$().text().trim(), 'template block text');

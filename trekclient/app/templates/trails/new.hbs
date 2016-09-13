@@ -1,42 +1,42 @@
+<h2 class="text-center">
+  Create New Enhanced Information Trail
+</h2>
+<br/>
+<form class="form-horizontal">
 
-  <h2 class="text-center">
-    Create New Enhanced Information Trail
-  </h2>
+  <div class="form-group">
+    <label class="col-xs-2 col-md-2 control-label">
+      Trail Name
+    </label>
+    <div class="col-xs-10 col-md-10">
+        {{input type="text" value=model.trail.name class="form-control" placeholder="The name of this trail"}}
+    </div>
+  </div>
+
   <br/>
-  <form class="form-horizontal">
-    <div class="row">   
-      <div class="form-group">
-        <label class="col-xs-2 col-md-2 control-label">
-          Trail Name
-        </label>
-        <div class="col-xs-10 col-md-10">
-            {{input type="text" value=model.trail.name class="form-control" placeholder="The name of this trail"}}
-        </div>
-      </div>
+  <div class="row">
+    <div class="col-xs-12 col-md-12">     
+      {{gpxfile-uploader uploadedFileUrl=model.trail.gpxFileUrl}}
     </div>
-    <br/>
-    <div class="row">  
-      <div class="col-xs-12 col-md-12">     
-        {{filestack-uploader fileStackUrl=model.trail.filestackUrl}}
-      </div>
+  </div>
+  <br/>
+
+  <div class="form-group">
+    <label class="col-xs-2 col-md-2 control-label">
+      GPX url
+    </label>
+    <div class="col-xs-10 col-md-10">
+        {{input type="text" value=model.trail.gpxFileUrl disabled=true class="form-control" placeholder="The GPX file location"}}
     </div>
-    <br/>
-    <div class="row">
-      <div class="form-group">
-        <label class="col-xs-2 col-md-2 control-label">
-          Filestack url
-        </label>
-        <div class="col-xs-10 col-md-10">
-            {{input type="text" value=model.trail.filestackUrl disabled=true class="form-control" placeholder="The GPX file location"}}
-        </div>
-      </div>
-    </div>
-    <hr/>
-    <select>
-    <option value="volvo">Volvo</option>
-    <option value="saab">Saab</option>
-    <option value="mercedes">Mercedes</option>
-    <option value="audi">Audi</option>
-    </select>
-  </form>
-  {{outlet}}
+  </div>
+  <hr/>
+
+  <select>
+  <option value="volvo">Volvo</option>
+  <option value="saab">Saab</option>
+  <option value="mercedes">Mercedes</option>
+  <option value="audi">Audi</option>
+  </select>
+
+</form>
+{{outlet}}

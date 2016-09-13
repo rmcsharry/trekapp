@@ -2,7 +2,7 @@
 @import "bootstrap";
 @import "trailcard";
 @import "placeholder";
-@import "filestack-uploader";
+@import "gpxfile-uploader";
 
 body {
   padding-top: 20px;
@@ -71,4 +71,8 @@ body {
 
 .error-text {
   color: $brand-danger;
+}
+
+.hideField {
+  display: hidden;
 }

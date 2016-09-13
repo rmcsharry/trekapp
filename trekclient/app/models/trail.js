@@ -3,6 +3,7 @@ import DS from 'ember-data';
 
 export default DS.Model.extend({
   name: DS.attr(),
+  gpxFileUrl: DS.attr(),  
   mapThumbnailUrl: DS.attr(),
   elevationThumbnailUrl: DS.attr(),
   province: DS.attr(),
@@ -15,8 +16,7 @@ export default DS.Model.extend({
   distanceType: DS.attr(),
   publishStatus: DS.attr(),
   updatedAt: DS.attr(),
-
-  filestackUrl: DS.attr(),
+  
   notes: DS.hasMany('note', { async: true }),
   comments: DS.hasMany('comment', { async: true }),  
   employees: DS.hasMany('employee', { async: true }),
