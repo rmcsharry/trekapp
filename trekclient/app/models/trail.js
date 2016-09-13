@@ -18,11 +18,14 @@ export default DS.Model.extend({
   updatedAt: DS.attr(),
   notesCount: DS.attr(),
   commentsCount: DS.attr(),
-  
+
+  // relationships
   notes: DS.hasMany('note', { async: true }),
   comments: DS.hasMany('comment', { async: true }),  
   employees: DS.hasMany('employee', { async: true }),
 
+  // computed attributes
+  isValid: Ember.computed.and('name', 'gpxFileUrl'),  
   // notesCount: Ember.computed('notes', function() {
   //   return `${this.get('notes.length')}`;
   // }),

@@ -14,6 +14,21 @@ export default Ember.Route.extend({
     });
   },
 
+  actions: {
+    save: function (newObj) {
+      if (newObj.get('isValid')) {
+        newObj.save().then(() => this.transitionTo('trails'));
+      }
+      else {
+        alert("Not valid - please provide a name and a GPX file.");
+      }
+    },
+    willTransition() {
+      // rollback will remove the record from the store
+      this.controller.get('model.trail').rollbackAttributes();
+    }
+  }
+
   // need to do this until routeable components are available
   // setupController(controller) {
   //     this._super(...arguments);

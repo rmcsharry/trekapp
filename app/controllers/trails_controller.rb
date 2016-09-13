@@ -1,4 +1,5 @@
 class TrailsController < ApplicationController
+
   before_action :set_trail, only: [:show, :update, :destroy]
 
   # GET /trails
@@ -52,6 +53,10 @@ class TrailsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def trail_params
-      params.require(:trail).permit(:name, :description, :province, :country_code, :region_type, :agency, :website, :distance_value, :distance_unit, :distance_type)
+      if Rails.env.development?
+        Rails.logger.info ActiveModelSerializers::Deserialization.jsonapi_parse(params)
+      end
+      ActiveModelSerializers::Deserialization.jsonapi_parse!(params)
     end
+
 end
