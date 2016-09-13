@@ -31,14 +31,41 @@
   </div>
   <hr/>
 
-  <select>
-  <option value="volvo">Volvo</option>
-  <option value="saab">Saab</option>
-  <option value="mercedes">Mercedes</option>
-  <option value="audi">Audi</option>
-  </select>
+BUNCH OF FIELDS HERE
   <hr/>
-  
+
+  <div class="form-group">
+    <label class="col-xs-2 col-md-2 control-label">
+      Trail website
+    </label>
+    <div class="col-xs-10 col-md-10">
+        {{input type="text" value=model.trail.websiteUrl class="form-control" placeholder="The website url"}}
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-xs-2 col-md-2 control-label">
+      Trail distance (km)
+    </label>
+    <div class="col-xs-10 col-md-10">
+        {{input type="text" value=model.trail.distanceValue class="form-control" placeholder="The length of the trail"}}
+    </div>
+  </div>  
+  <hr/>
+
+  <div class="form-group">
+    <label class="col-xs-2 col-md-2 control-label">
+      Assign to recording team member
+    </label>
+    <div class="col-xs-4 col-md-4">
+        {{input type="text" class="form-control" placeholder="Select someone"}}
+    </div>
+    <div class="cols-xs-4 col-md-4 pull-right">
+      <button type="submit" class="btn btn-primary">Add new recording team member</button>
+    </div> 
+  </div>
+  <hr/>
+
   <div class="col-xs-12 col-md-12 text-center">
     <button type="submit" class="btn btn-success" {{action 'save' model.trail}}>Save</button>
   </div>

@@ -3,7 +3,8 @@ import DS from 'ember-data';
 
 export default DS.Model.extend({
   name: DS.attr(),
-  gpxFileUrl: DS.attr(),  
+  gpxFileUrl: DS.attr(),
+  websiteUrl: DS.attr(),  
   mapThumbnailUrl: DS.attr(),
   elevationThumbnailUrl: DS.attr(),
   province: DS.attr(),
