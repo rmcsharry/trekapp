@@ -8,12 +8,19 @@ export default Ember.Component.extend({
     filepicker.setKey('AN8H8yfYmRoWueVQmTIxNz'); // TODO get from server
   }),
 
+  jsonUploadResult: null,
+
   didInsertElement: function () {
     this._super(...arguments);
+    let component = this;
     let me = this.$();
     let child = this.$('div:first-child');
-    let putTextBack = function () {
+    let resetText = function () {
       child.html('<h2>Upload GPX Route</h2><div class="dropzone-body-text"><h5>Drag and Drop here</h5>- or -<h5>click anywhere here</h5></div>');
+    };
+    let showError = function (type, message) {
+      child.removeClass('is-dragging');
+      child.html('<h2>Error - please try again</h2>' + '<h5 class="error-text">' + type + '<br/><br/>' + message + '</h5><h3>Drop another file or click me</h3>');
     };
     filepicker.makeDropPane(me[0], {
       multiple: false,
@@ -24,41 +31,58 @@ export default Ember.Component.extend({
         child.addClass('is-dragging');
         child.html('<h2>Drop here</h2>');
       },
-      dropped: function () { console.log('dropped') },
+      onStart: function (files) {
+        // this is here for troubleshooting purposes so we can see what the user dropped
+        let obj = files[0]; // we only allow single uploads, so only expect one file in the array
+        let result = null;
+        $.each(obj, function (k, v) {
+          result += k + " , " + v + "\n";
+        });
+        console.log('file dropped is:\n' + result); // note: type is always empty, so we don't know beforehand what the user dropped
+      },
       dragLeave: function () {
         child.removeClass('is-dragging');
-        putTextBack();
+        resetText();
       },
       onSuccess: function (Blobs) {
-        me.text("Done, see result below");
-        //$("#localDropResult").text(JSON.stringify(Blobs));
+        let result = Blobs[0]; // we only allow single uploads, so only expect one file in the array
+        //let mimeType = JSON.parse(result);
+        if (result.mimetype != 'text/xml') {
+          let typeMsg = 'Wrong type - your file is of type "' + result.mimetype + '".';
+          let errorMsg = 'Please check the file in an editor. A GPX file should be of type "text/xml".';
+          showError(typeMsg, errorMsg);
+        }
+        else {
+          child.html('<h2>File successfully processed</h2><br/><h4>Please note the file will not be saved until you complete the form below.</h4>');
+          component.set('jsonUploadResult', result['url']);
+        }
       },
       onError: function (type, message) {
         //$("#localDropResult").text('('+type+') '+ message);
-        child.removeClass('is-dragging');
-        child.html('<h2>Error - please try again</h2>' + '<h5 class="error-text">' + type + '<br/><br/>' + message + '</h5><h3>Drop another file or click me</h3>');
+        showError(type, message);
       },
       onProgress: function (percentage) {
-        child.text("Uploading (" + percentage + "%)");
+        child.html('<h2>Processing (' + percentage + '%)</h2>');
       }
     });
   },
 
   actions: {
     openFilePicker: function () {
-      // remove (just in case there is an error showing already - TODO use a flag)
-      // this.$('div:first-child').html('<h2>Upload GPX Route</h2><div class="dropzone-body-text"><h5>Drag and Drop here</h5>- or -<h5>click anywhere here</h5></div>');
+      // reset dropzone (just in case there is an error showing already - TODO use a flag)
+      let child = this.$('div:first-child');
+      child.removeClass('is-dragging');
+      child.html('<h2>Upload GPX Route</h2><div class="dropzone-body-text"><h5>Drag and Drop here</h5>- or -<h5>click anywhere here</h5></div>');
       filepicker.pick({
-        extension: '.gpx',
         container: 'modal',
         maxSize: (5 * 1024 * 1024),
         services: ['COMPUTER']
       },
-        function (Blob) {
-          alert(replaceHtmlChars(JSON.stringify(Blob)));
-        },
         function (FPError) {
           console.log(FPError.toString());
+        },
+        function (Blob) {
+          console.log("file is " + replaceHtmlChars(JSON.stringify(Blob)));
         }
       );
     }
