@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 20160908130302) do
 
   create_table "trails", force: :cascade do |t|
     t.string   "name"
+    t.string   "gpx_file_url"
     t.string   "map_thumbnail_url"
     t.string   "elevation_thumbnail_url"
     t.string   "province"

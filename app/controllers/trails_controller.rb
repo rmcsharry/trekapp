@@ -5,11 +5,13 @@ class TrailsController < ApplicationController
   def index
     if params[:page]
       @trails = Trail.page(params[:page]).per(params[:per_page])
+      pageCount = (Trail.count / params[:per_page].to_f).ceil
     else
       @trails = Trail.all
+      pageCount = 1
     end 
 
-    render json: @trails, meta: { total: (Trail.count / params[:per_page].to_f).ceil, records: Trail.count}
+    render json: @trails, meta: { total: pageCount, records: Trail.count }
   end
 
   # GET /trails/1

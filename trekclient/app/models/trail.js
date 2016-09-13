@@ -16,16 +16,18 @@ export default DS.Model.extend({
   distanceType: DS.attr(),
   publishStatus: DS.attr(),
   updatedAt: DS.attr(),
+  notesCount: DS.attr(),
+  commentsCount: DS.attr(),
   
   notes: DS.hasMany('note', { async: true }),
   comments: DS.hasMany('comment', { async: true }),  
   employees: DS.hasMany('employee', { async: true }),
 
-  notesCount: Ember.computed('notes', function() {
-    return `${this.get('notes.length')}`;
-  }),
-  commentsCount: Ember.computed('comments', function() {
-    return `${this.get('comments.length')}`;
-  }),  
+  // notesCount: Ember.computed('notes', function() {
+  //   return `${this.get('notes.length')}`;
+  // }),
+  // commentsCount: Ember.computed('comments', function() {
+  //   return `${this.get('comments.length')}`;
+  // }),  
 
 });

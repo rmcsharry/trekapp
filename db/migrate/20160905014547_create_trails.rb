@@ -2,6 +2,7 @@ class CreateTrails < ActiveRecord::Migration[5.0]
   def change
     create_table :trails do |t|
       t.string :name
+      t.string :gpx_file_url
       t.string :map_thumbnail_url
       t.string :elevation_thumbnail_url
       t.string :province
