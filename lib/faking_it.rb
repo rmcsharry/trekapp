@@ -106,7 +106,7 @@ module FakingIt
           country_code: Faker::Address.country_code,
           region_type: Faker::StarWars.planet,
           agency: Faker::Space.agency,
-          website: Faker::Internet.url,
+          website_url: Faker::Internet.url,
           distance_value: Faker::Number.decimal(2),
           distance_unit: 'km',
           distance_type: Random.rand(4),

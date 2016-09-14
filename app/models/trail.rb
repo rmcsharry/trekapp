@@ -12,7 +12,6 @@ class Trail < ApplicationRecord
   enum distance_type: [:undefined, :loop, :out_and_back, :point_to_point], _prefix: true
   enum publish_status: [:draft, :published]
 
-
   def capitalizable_attrs
     ["name"]
   end

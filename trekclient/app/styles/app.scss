@@ -3,6 +3,29 @@
 @import "trailcard";
 @import "placeholder";
 @import "gpxfile-uploader";
+@import "ember-power-select";
+
+fix some issues with the ember-power-select 
+.ember-power-select {
+ align-self: center;
+  border-radius: 0;
+}
+.ember-power-select-trigger {
+ display: flex;
+ align-items: center;
+ min-height: 28px;
+ padding-left: 4px;
+ border-radius: 0;
+}
+.ember-power-select-search {
+  border-radius: 0;
+}
+.ember-power-select-dropdown {
+  border-radius: 0;
+}
+.ember-basic-dropdown-trigger {
+  margin-right: 6px;
+}
 
 body {
   padding-top: 20px;

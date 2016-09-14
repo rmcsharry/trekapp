@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 20160908130302) do
     t.string   "country_code"
     t.string   "region_type"
     t.string   "agency"
-    t.string   "website"
+    t.string   "website_url"
     t.string   "distance_value"
     t.string   "distance_unit"
     t.integer  "distance_type",           default: 0, null: false

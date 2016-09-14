@@ -5,11 +5,13 @@ class EmployeesController < ApplicationController
   def index
     if params[:page]
       @employees = Employee.page(params[:page]).per(params[:per_page])
+      pageCount = (Employee.count / params[:per_page].to_f).ceil
     else
       @employees = Employee.all
+      pageCount = 1
     end
 
-    render json: @employees, meta: { total: (Employee.count / params[:per_page].to_f).ceil, records: Trail.count}
+    render json: @employees, meta: { total: pageCount, records: Trail.count}
   end
 
   # GET /employees/1

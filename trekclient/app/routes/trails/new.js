@@ -16,7 +16,7 @@ export default Ember.Route.extend({
   model: function () {
     return Ember.RSVP.hash({
       trail: this.store.createRecord('trail'),
-      //      categories: this.store.findAll('countries')
+      employees: this.store.findAll('employee')
     });
   },
 

@@ -9,7 +9,7 @@ class TrailSerializer < ActiveModel::Serializer
               :country_code,
               :region_type,
               :agency,
-              :website,
+              :website_url,
               :distance_value,
               :distance_unit,
               :distance_type,
