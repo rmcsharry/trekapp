@@ -11,7 +11,7 @@ class EmployeesController < ApplicationController
       pageCount = 1
     end
 
-    render json: @employees, meta: { total: pageCount, records: Trail.count}
+    render json: @employees, meta: { total: pageCount, records: Employee.count}
   end
 
   # GET /employees/1

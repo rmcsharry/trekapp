@@ -5,11 +5,13 @@ class PeopleController < ApplicationController
   def index
     if params[:page]
       @people = Person.page(params[:page]).per(params[:per_page])
+      pageCount = (Person.count / params[:per_page].to_f).ceil
     else
       @people = Person.all
+      pageCount = 1
     end
 
-    render json: @people
+    render json: @people, meta: { total: pageCount, records: Person.count}
   end
 
   # GET /people/1
@@ -50,6 +52,9 @@ class PeopleController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def person_params
-      params.require(:person).permit(:first_name, :last_name, :email, :phone)
+      if Rails.env.development?
+        Rails.logger.info ActiveModelSerializers::Deserialization.jsonapi_parse(params)
+      end    
+      params.require(:employee).permit(:status, :first_name, :last_name, :email, :phone)
     end
 end
