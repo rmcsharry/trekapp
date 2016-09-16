@@ -7,4 +7,5 @@ export default Ember.Route.extend(InfinityRoute, {
 	model() {
 		return this.infinityModel("employee", { perPage: 10, startingPage: 1 });
 	},
+
 });
