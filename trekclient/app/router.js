@@ -11,6 +11,7 @@ Router.map(function () {
 
   this.route('trails', function () {
     this.route('new');
+    this.route('edit', { path: '/:trail_id/edit' });
   });
 
   this.route('employees', function () {

@@ -16,7 +16,12 @@ export default Ember.Route.extend({
   model: function () {
     return Ember.RSVP.hash({
       trail: this.store.createRecord('trail'),
-      employees: this.store.findAll('employee')
+      employees: function() {
+        let emps = this.store.findAll('employee');
+        return emps.filter('employee', function() {
+          return record.get('statusCode') !== 3
+        });
+      }
     });
   },
 
