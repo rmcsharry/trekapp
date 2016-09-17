@@ -18,11 +18,14 @@ export default Ember.Route.extend({
     myFilter.data = { filter: {status: [2,3] } }; // current employees
     return Ember.RSVP.hash({
       trail: this.store.createRecord('trail'),
-      employees: this.store.query('employee', myFilter).then(function(data) {return data})
-    })
+      employees: this.store.query('employee', myFilter).then(function(data) {return data});
+    });
   },
 
   actions: {
+    employeeSelected: function (employee) {
+      
+    },
     save: function (newObj) {
       if (newObj.get('isValid')) {
         newObj.save().then(() => this.transitionTo('trails'));

@@ -13,7 +13,7 @@ fix some issues with the ember-power-select
 .ember-power-select-trigger {
  display: flex;
  align-items: center;
- min-height: 60px;
+ min-height: 45px;
  padding-left: 4px;
  border-radius: 0;
 }
@@ -25,6 +25,16 @@ fix some issues with the ember-power-select
 }
 .ember-basic-dropdown-trigger {
   margin-right: 6px;
+}
+.avatar-small {
+  height: 25px;
+  width: 25px;
+}
+.ember-power-select-multiple-option
+.power-selected {
+  margin-top: -15px;
+  margin-bottom: 5px;
+  margin-left: 10px;
 }
 
 body {
