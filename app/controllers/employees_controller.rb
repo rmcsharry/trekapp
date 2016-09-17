@@ -6,12 +6,15 @@ class EmployeesController < ApplicationController
     if params[:page]
       @employees = Employee.page(params[:page]).per(params[:per_page])
       pageCount = (Employee.count / params[:per_page].to_f).ceil
+      render json: @employees, meta: { total: pageCount, records: Employee.count}
+    end
+    
+    if params[:data][:filter][:status]
+      @employees = Employee.where('status in (?)', params[:data][:filter][:status])
     else
       @employees = Employee.all
-      pageCount = 1
     end
-
-    render json: @employees, meta: { total: pageCount, records: Employee.count}
+    render json: @employees
   end
 
   # GET /employees/1
@@ -52,6 +55,10 @@ class EmployeesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def employee_params
-      params.require(:employee).permit(:status, :first_name, :last_name, :email, :phone)
+      if Rails.env.development?
+        Rails.logger.info "Params are:#{params.to_json}" 
+        Rails.logger.info ActiveModelSerializers::Deserialization.jsonapi_parse(params)
+      end
+      ActiveModelSerializers::Deserialization.jsonapi_parse!(params)
     end
 end

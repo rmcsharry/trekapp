@@ -6,5 +6,10 @@ export default Person.extend({
   status: DS.attr(),
   statusCode: DS.attr(),
 
-  treks: DS.hasMany('trek'),
+  fullNameWithStatus: Ember.computed('fullName', 'status', function () {
+    return `${this.get('fullName')} - ${this.get('status').capitalize()}`;
+  }),
+
+  // relationships
+  trail: DS.belongsTo('trail'),
 });

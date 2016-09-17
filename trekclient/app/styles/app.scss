@@ -13,7 +13,7 @@ fix some issues with the ember-power-select
 .ember-power-select-trigger {
  display: flex;
  align-items: center;
- min-height: 28px;
+ min-height: 60px;
  padding-left: 4px;
  border-radius: 0;
 }
@@ -70,6 +70,9 @@ body {
 }
 
 // used to colour the different enum status for an employee
+.personStatus {
+  display: inline;
+}
 .personStatus
   .unknown {
     color: $gray-lightest;

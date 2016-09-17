@@ -54,7 +54,7 @@ class PeopleController < ApplicationController
     def person_params
       if Rails.env.development?
         Rails.logger.info ActiveModelSerializers::Deserialization.jsonapi_parse(params)
-      end    
-      params.require(:employee).permit(:status, :first_name, :last_name, :email, :phone)
+      end
+      ActiveModelSerializers::Deserialization.jsonapi_parse!(params)
     end
 end

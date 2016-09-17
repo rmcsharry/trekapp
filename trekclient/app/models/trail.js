@@ -23,7 +23,7 @@ export default DS.Model.extend({
   notes: DS.hasMany('note', { async: true }),
   comments: DS.hasMany('comment', { async: true }),  
   assignments: DS.hasMany('assignment', { async: true }),
-
+  employees: DS.hasMany(),
   // computed attributes
 // TODO turn this back on  isValid: Ember.computed.and('name', 'gpxFileUrl'),  
 

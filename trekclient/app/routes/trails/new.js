@@ -3,10 +3,10 @@ import Ember from 'ember';
 export default Ember.Route.extend({
   isEditing: true,
 
-  // need to do this until routeable components are available
-  // setupController(controller) {
+  //need to do this until routeable components are available
+  // setupController(controller,model) {
   //     this._super(...arguments);
-  //     controller.set('trailsNewRoute', this);
+  //     controller.set(controller, model);
   // },
 
   beforeModel: function () {
@@ -14,15 +14,12 @@ export default Ember.Route.extend({
   },
 
   model: function () {
+    let myFilter = {};
+    myFilter.data = { filter: {status: [2,3] } }; // current employees
     return Ember.RSVP.hash({
       trail: this.store.createRecord('trail'),
-      employees: function() {
-        let emps = this.store.findAll('employee');
-        return emps.filter('employee', function() {
-          return record.get('statusCode') !== 3
-        });
-      }
-    });
+      employees: this.store.query('employee', myFilter).then(function(data) {return data})
+    })
   },
 
   actions: {
