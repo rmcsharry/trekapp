@@ -12,7 +12,8 @@ class TrailSerializer < ActiveModel::Serializer
               :website_url,
               :distance_value,
               :distance_unit,
-              :distance_type,
+              :layout_type,
+              :difficulty_level,
               :publish_status,
               :updated_at,
               :notes_count,
@@ -20,12 +21,8 @@ class TrailSerializer < ActiveModel::Serializer
 
   has_many :assignments
   
-  def distance_type
-    return object.distance_type.dasherize
-  end
-
-  def publish_status
-    return object.publish_status.dasherize
+  def layout_type
+    return object.layout_type.dasherize
   end
 
   def updated_at

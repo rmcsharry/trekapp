@@ -12,8 +12,9 @@ class CreateTrails < ActiveRecord::Migration[5.0]
       t.string :website_url      
       t.string :distance_value
       t.string :distance_unit
-      t.integer :distance_type, default: 0, null: false # used for enum
+      t.integer :layout_type, default: 0, null: false # used for enum
       t.integer :publish_status, default: 0, null: false # used for enum
+      t.integer :difficulty_level, default: 0, null: false # used for enum
 
       t.timestamps
     end
