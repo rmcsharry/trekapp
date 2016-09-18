@@ -3,6 +3,6 @@ class PersonSerializer < ActiveModel::Serializer
 
   has_one :address
 
-  # has_many :assignments
+  has_many :assignments
   # has_many :trails, through: :assignments  
 end

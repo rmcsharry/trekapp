@@ -19,7 +19,6 @@ class TrailSerializer < ActiveModel::Serializer
               :comments_count
 
   has_many :assignments
-  has_many :people, through: :assignments
   
   def distance_type
     return object.distance_type.dasherize

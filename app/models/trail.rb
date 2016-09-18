@@ -5,9 +5,9 @@ class Trail < ApplicationRecord
 
   has_many :notes, dependent: :destroy
   has_many :comments, dependent: :destroy
+  
   has_many :assignments
   has_many :people, through: :assignments
-
 
   # Note that 'loop' is a reserved word, so we call the enum looped instead, but must present it to the outside world as 'loop'
   # if you create an enum called 'loop' you will override Trail.loop default method

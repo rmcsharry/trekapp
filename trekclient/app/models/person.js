@@ -10,5 +10,7 @@ export default DS.Model.extend({
     return `${this.get('lastName')}, ${this.get('firstName')}`;
   }),
   
-  address: DS.belongsTo('address')
+  // relationships
+  address: DS.belongsTo('address'),
+  assignments: DS.hasMany('assignment', { async: true }),
 });
