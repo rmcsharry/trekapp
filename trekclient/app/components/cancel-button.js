@@ -5,6 +5,6 @@ export default Ember.Component.extend({
 
   isEditing: function() {
     let currentRoute = this.get('router.currentRouteName');
-    return currentRoute.includes('new','edit');
+    return (currentRoute.includes('new') || currentRoute.includes('edit'));
   }.property('router.currentRouteName')
 });

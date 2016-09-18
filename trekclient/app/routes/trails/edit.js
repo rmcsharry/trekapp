@@ -7,4 +7,10 @@ export default Ember.Route.extend({
       employees: this.store.findAll('employee')
     });
   },  
+
+  actions: {
+    cancel: function() {
+      this.transitionTo('trails');
+    },
+  }  
 });
