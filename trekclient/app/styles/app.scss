@@ -1,6 +1,8 @@
 @import "_variables";
 @import "bootstrap";
 @import "trailcard";
+@import "person-status";
+@import "difficulty-level";
 @import "placeholder";
 @import "gpxfile-uploader";
 @import "ember-power-select";
@@ -78,27 +80,6 @@ body {
     display: block; /* turn off the flexible box layout */
   }
 }
-
-// used to colour the different enum status for an employee
-.personStatus {
-  display: inline;
-}
-.personStatus
-  .unknown {
-    color: $gray-lightest;
-  }
-.personStatus    
-  .no-longer-employed {
-    color: $gray-lighter;
-  }
-.personStatus    
-  .standby {
-    color: $brand-warning;
-  }
-.personStatus    
-  .active {
-    color: $brand-success;
-  }
 
 // make the navigation pill hover background match the primary button hover bg
 .nav-pills > li.active > a:hover {

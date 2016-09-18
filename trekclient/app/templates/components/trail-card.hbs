@@ -3,8 +3,10 @@
 		<h3 class="panel-title pull-left">
 			{{trail.name}}
 		</h3>
-		<div class="pull-right category-box difficulty-icon{{trail.difficulty}}">
-			[]
+		<div class="pull-right difficultyLevel">
+			<span class="{{trail.difficultyLevel}}">
+				<span class="glyphicon glyphicon-certificate"></span>
+			</span>
 		</div>
 		<div class="clearfix">
 		</div>
@@ -19,8 +21,9 @@
 				<div class="placeholder150150">
 					<img class="media-object" src="{{trail.mapThumbnailUrl}}" alt="Trail route thumbnail">
 				</div>
-				<div class="placeholder15050">
-					<img class="media-object" src="{{trail.elevationThumbnailUrl}}" alt="Trail route thumbnail">
+				<div class="placeholder15050 difficultyLevel-overlay">
+					<img class="push-back" src="{{trail.elevationThumbnailUrl}}" alt="Trail route thumbnail">
+					<div class="overlay {{trail.difficultyLevel}}"></div>
 				</div>
 			</a>
 		</div>
