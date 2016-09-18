@@ -16,6 +16,7 @@ Router.map(function () {
 
   this.route('employees', function () {
     this.route('new');
+    this.route('edit', { path: '/:employee_id/edit' });
   });
 
   this.route('notes');

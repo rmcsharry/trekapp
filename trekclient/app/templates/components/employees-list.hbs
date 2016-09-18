@@ -1,6 +1,6 @@
 <div class="list-group">
 	{{#each employeeModel as |employee|}}
-	<a href="#" class="list-group-item">
+	{{#link-to 'employees.edit' employee.id class="list-group-item"}}
 		<div class="row vertical-align">
 			<div class="col-xs-3 col-sm-2">
 				<div class="media-left vertical-align">
@@ -18,7 +18,7 @@
 				<h5 class="text-right"># active / pending treks</h5>
 			</div>
 		</div>
-	</a>
+	{{/link-to}}
 	{{/each}}
 </div>
 {{infinity-loader infinityModel=employeeModel loadingText="Loading..." loadedText="No more data!"}}
