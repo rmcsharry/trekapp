@@ -26,19 +26,19 @@ export default Ember.Route.extend({
     save: function (newObject) {
       if (newObject.get('isValid')) {
         let theChosenOnes = this.controller.get('theChosenOnes');
-        let _store = this.get('store');
+        let _this = this;
         theChosenOnes.forEach(function (aChosenOne) {
-          _store.createRecord('assignment', {
+          _this.get('store').createRecord('assignment', {
             trail: newObject,
             person: aChosenOne,
           });
         });
         newObject.save().then(function (newTrail) {
           newTrail.get('assignments').then(assigns => assigns.save()).then(function() {
-            console.log('DONE');
+            _this.transitionTo('trails');
           });
           //newTrail.get('selectedEmps')
-          //         this.transitionTo('trails');
+          //         
         });
       }
       else {
@@ -46,6 +46,7 @@ export default Ember.Route.extend({
       }
     },
     willTransition() {
+      this.controller.get('theChosenOnes').clear(); // clear the selected items
       // rollback will remove the record from the store
       this.controller.get('model.trail').rollbackAttributes();
     }
