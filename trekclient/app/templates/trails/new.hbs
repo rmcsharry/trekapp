@@ -61,11 +61,11 @@ BUNCH OF FIELDS HERE
       Assign to recording team member(s)
     </label>
     <div class="col-xs-10 col-md-10">
-      {{#power-select-multiple options=model.employees 
+      {{#power-select-multiple options=model.currentEmployees 
         searchPlaceholder="Type a name to search"
         searchField="fullName"
-        selected=model.trail.employee placeholder="Select team members"
-        onchange=(action (mut model.trail.employee)) as |employee| 
+        selected=theChosenOnes placeholder="Select team member(s)"
+        onchange=(action 'chosenOnesChanged') as |employee| 
       }}
       <div class="vertical-align power-selected">
         <div class="col-xs-3 col-md-2">

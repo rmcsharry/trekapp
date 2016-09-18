@@ -1,26 +1,21 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  statusFilter: null,  
-  // { status: [1,2] }, 
+  theChosenOnes: Ember.A(), // used in the ember-power-select to store selected employees
 
-  queryParams: {
-    filterByStatus: 'filter[status]'
-  },
-  filterByStatus: '1'
-
-
-  // currentEmployees: Ember.computed('employee', 'model.employees', function() {
-  //   var statusFilter = this.get('statusFilter');
-  //   var employees = this.get('model.employees');
-
-  //   if (statusFilter) {
-  //     return employees.filterBy('status', StatusFilter);
-  //   } else {
-  //     return employees;
-  //   }
-  // })
-
-
-
+  actions: {
+    chosenOnesChanged (newList) {
+      let theChosenOnes = this.theChosenOnes;
+      theChosenOnes.forEach(function(me){
+        if (!newList.includes(me)) {
+          theChosenOnes.removeObject(me); // if I was chosen b4, but the newList doesn't have me, remove me
+        }
+      });
+      newList.forEach(function(me){
+        if (!theChosenOnes.includes(me)) {
+          theChosenOnes.pushObject(me); // if I was not chosen b4, but the newList has me, add me
+        }          
+      });
+    },
+  }  
 });

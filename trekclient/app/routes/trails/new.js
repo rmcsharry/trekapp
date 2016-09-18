@@ -3,7 +3,7 @@ import Ember from 'ember';
 export default Ember.Route.extend({
   isEditing: true,
 
-  //need to do this until routeable components are available
+  // need to do this until routeable components are available
   // setupController(controller,model) {
   //     this._super(...arguments);
   //     controller.set(controller, model);
@@ -15,20 +15,31 @@ export default Ember.Route.extend({
 
   model: function () {
     let myFilter = {};
-    myFilter.data = { filter: {status: [2,3] } }; // current employees
+    myFilter.data = { filter: { status: [2, 3] } }; // current employees
     return Ember.RSVP.hash({
       trail: this.store.createRecord('trail'),
-      employees: this.store.query('employee', myFilter).then(function(data) {return data});
+      currentEmployees: this.store.query('employee', myFilter).then(function (data) { return data }),
     });
   },
 
   actions: {
-    employeeSelected: function (employee) {
-      
-    },
-    save: function (newObj) {
-      if (newObj.get('isValid')) {
-        newObj.save().then(() => this.transitionTo('trails'));
+    save: function (newObject) {
+      if (newObject.get('isValid')) {
+        let theChosenOnes = this.controller.get('theChosenOnes');
+        let _store = this.get('store');
+        theChosenOnes.forEach(function (aChosenOne) {
+          _store.createRecord('assignment', {
+            trail: newObject,
+            person: aChosenOne,
+          });
+        });
+        newObject.save().then(function (newTrail) {
+          newTrail.get('assignments').then(assigns => assigns.save()).then(function() {
+            console.log('DONE');
+          });
+          //newTrail.get('selectedEmps')
+          //         this.transitionTo('trails');
+        });
       }
       else {
         alert("Not valid - please provide a name and a GPX file.");
@@ -41,3 +52,14 @@ export default Ember.Route.extend({
   }
 
 });
+
+// developer.save().then(
+//   function(developer) { 
+//     developer.get('languages').save().then(
+//       function() { t }, 
+//       function(error) { 
+//         //a language failed to save 
+//       }); }, 
+//         function(error) { 
+//           //developer failed to save; 
+//         });

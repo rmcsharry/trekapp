@@ -7,14 +7,17 @@ class EmployeesController < ApplicationController
       @employees = Employee.page(params[:page]).per(params[:per_page])
       pageCount = (Employee.count / params[:per_page].to_f).ceil
       render json: @employees, meta: { total: pageCount, records: Employee.count}
-    end
-    
-    if params[:data][:filter][:status]
-      @employees = Employee.where('status in (?)', params[:data][:filter][:status])
     else
-      @employees = Employee.all
+      Rails.logger.info("params here: #{params.to_json}")
+      filter = params[:data][:filter] if !params[:data].nil? && !params[:data][:filter].nil?
+      
+      if !filter.nil? && !filter[:status].nil?
+        @employees = Employee.where('status in (?)', filter[:status])
+      else
+        @employees = Employee.all
+      end
+      render json: @employees
     end
-    render json: @employees
   end
 
   # GET /employees/1
