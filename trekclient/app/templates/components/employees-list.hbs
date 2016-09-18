@@ -12,11 +12,11 @@
 				<p>Home Base : {{employee.address.city}}, {{employee.address.province}}, {{employee.address.country_code}}</p>
 			</div>
 			<div class="col-xs-3 col-sm-1">
-				{{employee-status statusText=employee.status}}
+				<h4>{{employee-status statusText=employee.status}}</h4>
 			</div>
 			<div class="col-xs-9 col-sm-3">
-				<h5 class="text-right">active&nbsp;<span class="badge">{{employee.activeCount}}</span></h5>
-				<h5 class="text-right">pending&nbsp;<span class="badge">{{employee.pendingCount}}</span></h5>
+				<h4 class="text-right">active&nbsp;<span class="label-as-badge label-success">{{employee.activeCount}}</span></h4>
+				<h4 class="text-right">pending&nbsp;<span class="label-as-badge label-warning">{{employee.pendingCount}}</span></h4>
 			</div>
 		</div>
 	{{/link-to}}

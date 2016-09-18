@@ -121,3 +121,14 @@ body {
 .btn-page-header {
   margin-right: 10px;
 }
+
+.label-as-badge {
+  border-radius: 1.2em;
+  border-width: 0.1em;
+  border-style: solid;
+  border-color: $gray-dark; 
+  padding-bottom: 0.1em;
+  padding-left: 0.7em;
+  padding-right: 0.7em;
+  color: white;
+}
