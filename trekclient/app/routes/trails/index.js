@@ -7,6 +7,7 @@ export default Ember.Route.extend(InfinityRoute, {
 	model() {
 		return this.infinityModel("trail", { perPage: 10, startingPage: 1 });
 	},
+	
   count: Ember.computed( function() {
     return this.get('model').get('length');
   })

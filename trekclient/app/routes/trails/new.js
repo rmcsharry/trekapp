@@ -23,6 +23,9 @@ export default Ember.Route.extend({
   },
 
   actions: {
+    cancel: function() {
+      this.transitionTo('trails');
+    },
     save: function (newObject) {
       if (newObject.get('isValid')) {
         let theChosenOnes = this.controller.get('theChosenOnes');
@@ -36,9 +39,7 @@ export default Ember.Route.extend({
         newObject.save().then(function (newTrail) {
           newTrail.get('assignments').then(assigns => assigns.save()).then(function() {
             _this.transitionTo('trails');
-          });
-          //newTrail.get('selectedEmps')
-          //         
+          });   
         });
       }
       else {
