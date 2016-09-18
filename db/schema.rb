@@ -34,8 +34,9 @@ ActiveRecord::Schema.define(version: 20160915122356) do
   create_table "assignments", force: :cascade do |t|
     t.integer  "person_id"
     t.integer  "trail_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "status",     default: 0, null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.index ["person_id"], name: "index_assignments_on_person_id", using: :btree
     t.index ["trail_id"], name: "index_assignments_on_trail_id", using: :btree
   end

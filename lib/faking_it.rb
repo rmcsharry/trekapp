@@ -45,18 +45,20 @@ module FakingIt
 
   class Builder
 
+    # used by The Cleaner (not the one from the movie Pulp Fiction)
     FAKEABLE = %w(Employee Address Note Comment Trail)
 
     attr_accessor :report
 
     def initialize
       self.report = Reporter.new
-      clean!
+      theCleaner!
     end
 
     def create_data(count=1)
       employees(count)
       trails(count)
+      assignments(count)
     end
 
     # create employees
@@ -83,6 +85,7 @@ module FakingIt
       self.report.increment(:addresses, count)
     end
 
+    # create addresses
     def address(options = {})
       # for other address type examples, see: https://github.com/stympy/faker/wiki/Address
       attributes = {
@@ -145,8 +148,28 @@ module FakingIt
       self.report.increment(:comments, count)
     end    
 
+    def assignments(count)
+      1.upto(count*3) do
+        # pick a random person and trail
+        first = Employee.minimum('id')
+        last = Employee.maximum('id')
+        id = Random.rand(first..last)
+        e = Employee.find(id)
+
+        first = Trail.minimum('id')
+        last = Trail.maximum('id')
+        id = Random.rand(first..last)
+        t = Trail.find(id)
+
+        coin_toss = Random.rand(1..2)
+
+        Assignment.create(person: e, trail: t, status: coin_toss)
+      end
+      self.report.increment(:assignments, count*3)      
+    end
+
     # cleans all faked data away
-    def clean!
+    def theCleaner!
       FAKEABLE.map(&:constantize).map(&:destroy_all)
     end
 

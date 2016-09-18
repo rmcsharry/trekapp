@@ -1,5 +1,5 @@
 class AssignmentSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :status
 
   belongs_to :person
   belongs_to :trail

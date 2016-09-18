@@ -15,7 +15,8 @@
 				{{employee-status statusText=employee.status}}
 			</div>
 			<div class="col-xs-9 col-sm-2">
-				<h5 class="text-right"># active / pending treks</h5>
+				<h5 class="text-right">active&nbsp;<span class="badge">{{employee.activeCount}}</span></h5>
+				<h5 class="text-right">pending&nbsp;<span class="badge">{{employee.pendingCount}}</span></h5>
 			</div>
 		</div>
 	{{/link-to}}
