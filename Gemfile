@@ -23,7 +23,7 @@ gem 'puma', '~> 3.0'
 
 gem 'rspec-rails'
 gem 'active_model_serializers', '~> 0.10.2'
-gem "ember-cli-rails", github: "thoughtbot/ember-cli-rails", branch: "support-api-controller"
+gem "ember-cli-rails", '~> 0.8.1'
 gem 'faker', '~> 1.6.6'
 gem 'kaminari'
 
