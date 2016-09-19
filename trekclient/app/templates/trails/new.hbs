@@ -52,7 +52,52 @@ BUNCH OF FIELDS HERE
     <div class="col-xs-10 col-md-10">
         {{input type="text" value=model.trail.distanceValue class="form-control" placeholder="The length of the trail"}}
     </div>
-  </div>  
+  </div> 
+  <div class="form-group">
+    <div class="col-xs-10 col-md-10 col-md-offset-2">
+      <ul class="layout-types">
+        <li>
+          {{#radio-button
+            name="layout-type-toggle"
+            radioId="out-and-back"
+            value="out-and-back"
+            groupValue=layout-type
+            changed='layoutTypeChanged'}}
+            <div class="btn btn-layout-type">
+              <h1><span class="glyphicon glyphicon-sort"></span></h1>
+              Out And Back
+            </div>
+          {{/radio-button}}
+        </li>
+        <li>
+          {{#radio-button
+            name="layout-type-toggle"
+            radioId="loop"
+            value="loop"
+            groupValue=layout-type
+            changed='layoutTypeChanged'}}
+            <div class="btn btn-layout-type">
+              <h1><span class="glyphicon glyphicon-retweet"></span></h1>
+              Loop
+            </div>
+          {{/radio-button}} 
+        </li>
+        <li>        
+          {{#radio-button
+            name="layout-type-toggle"
+            radioId="point-to-point"
+            value="point-to-point"
+            groupValue=layout-type
+            changed='layoutTypeChanged'}}
+            <div class="btn btn-layout-type">
+              <h1><span class="glyphicon glyphicon-resize-horizontal"></span></h1>        
+              Point to Point
+            </div>
+          {{/radio-button}}        
+        </li>                 
+      </ul>
+    </div>
+  </div>
   <hr/>
   &nbsp;
 

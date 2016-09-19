@@ -1,0 +1,37 @@
+
+.layout-types {
+  list-style-type: none;
+  padding: 0;
+}
+.layout-types li {
+  float:left;
+  margin:0 15px 0 0;
+}
+
+// the following are used to customise the ember-radio-button add-on
+input[name="layout-type-toggle"] {
+  display: none;
+}
+label[for=out-and-back].checked {
+  background-color: $gray-light;
+}
+label[for=loop].checked {
+  background-color: $gray-light;
+}
+label[for=point-to-point].checked {
+  background-color: $gray-light;
+}
+
+.btn-layout-type {
+  // NOTE the bg must have an alpha < 1 because we use the label above to change the bg
+  // as there is no other way to select the 'checked' element in an ember-radio-button
+  
+  //@include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+  @include button-variant($gray-light, rgba(255,255,255,0.7), $gray-lighter);
+  height: 7em;
+  width: 7em;
+}
+.btn.btn-layout-type {
+  padding-left: 2px;
+  padding-right: 2px;
+}

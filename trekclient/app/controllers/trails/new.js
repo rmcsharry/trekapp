@@ -17,5 +17,8 @@ export default Ember.Controller.extend({
         }          
       });
     },
+    layoutTypeChanged (type) {
+      console.log(type);
+    }
   }  
 });
