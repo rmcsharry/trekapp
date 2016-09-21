@@ -13,7 +13,7 @@ namespace :db do
       when 'l'
         faking.create_data(500)        
       else
-        faking.create_data
+        faking.create_data(args[:option].to_i)
     end
 
     # report
