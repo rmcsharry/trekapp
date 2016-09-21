@@ -20,10 +20,6 @@ class TrailSerializer < ActiveModel::Serializer
               :comments_count
 
   has_many :assignments
-  
-  def layout_type
-    return object.layout_type.dasherize
-  end
 
   def updated_at
     object.updated_at.to_date
