@@ -15,7 +15,7 @@ export default Ember.Route.extend({
 
   model: function () {
     let myFilter = {};
-    myFilter.data = { filter: { status: [2, 3] } }; // current employees
+    myFilter.data = { filter: { status: [2, 3] } }; // current employees (TODO: must be a better way)
     return Ember.RSVP.hash({
       trail: this.store.createRecord('trail'),
       currentEmployees: this.store.query('employee', myFilter).then(function (data) { return data }),
@@ -25,7 +25,7 @@ export default Ember.Route.extend({
   actions: {
     cancel: function() {
       this.transitionTo('trails');
-    },
+    }, 
     save: function (newObject) {
       if (newObject.get('isValid')) {
         let theChosenOnes = this.controller.get('theChosenOnes');
@@ -34,6 +34,7 @@ export default Ember.Route.extend({
           _this.get('store').createRecord('assignment', {
             trail: newObject,
             person: aChosenOne,
+            status: 'pending'
           });
         });
         newObject.save().then(function (newTrail) {
