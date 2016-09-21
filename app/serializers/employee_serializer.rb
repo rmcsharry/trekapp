@@ -2,10 +2,7 @@ class EmployeeSerializer < PersonSerializer
   attributes :status, :status_code, :active_count, :pending_count
   
   has_many :assignments, foreign_key: "person_id"
-
-  def status
-    return object.status.dasherize
-  end
+  has_many :trails, through: :assignments
 
   def status_code
     return Employee.statuses[object.status]
