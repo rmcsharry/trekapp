@@ -13,10 +13,12 @@ class EmployeesController < ApplicationController
       
       if !filter.nil? && !filter[:status].nil?
         @employees = Employee.where('status in (?)', filter[:status])
+        render json: @employees, each_serializer: CurrentEmployeesSerializer
       else
         @employees = Employee.all
+        render json: @employees
       end
-      render json: @employees
+      
     end
   end
 
