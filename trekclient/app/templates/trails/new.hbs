@@ -60,9 +60,9 @@ BUNCH OF FIELDS HERE
           {{#radio-button
             name="layout-type-toggle"
             radioId="out-and-back"
-            value="out-and-back"
-            groupValue=layout-type
-            changed='layoutTypeChanged'}}
+            value="out_and_back"
+            groupValue=model.trail.layoutType
+            }}
             <div class="btn btn-layout-type">
               <h1><span class="glyphicon glyphicon-sort"></span></h1>
               Out And Back
@@ -74,8 +74,8 @@ BUNCH OF FIELDS HERE
             name="layout-type-toggle"
             radioId="loop"
             value="loop"
-            groupValue=layout-type
-            changed='layoutTypeChanged'}}
+            groupValue=model.trail.layoutType
+            }}
             <div class="btn btn-layout-type">
               <h1><span class="glyphicon glyphicon-retweet"></span></h1>
               Loop
@@ -86,9 +86,9 @@ BUNCH OF FIELDS HERE
           {{#radio-button
             name="layout-type-toggle"
             radioId="point-to-point"
-            value="point-to-point"
-            groupValue=layout-type
-            changed='layoutTypeChanged'}}
+            value="point_to_point"
+            groupValue=model.trail.layoutType
+            }}
             <div class="btn btn-layout-type">
               <h1><span class="glyphicon glyphicon-resize-horizontal"></span></h1>        
               Point to Point
