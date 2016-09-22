@@ -32,12 +32,12 @@ ActiveRecord::Schema.define(version: 20160915122356) do
   end
 
   create_table "assignments", force: :cascade do |t|
-    t.integer  "person_id"
+    t.integer  "employee_id"
     t.integer  "trail_id"
-    t.integer  "status",     default: 0, null: false
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.index ["person_id"], name: "index_assignments_on_person_id", using: :btree
+    t.integer  "status",      default: 0, null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.index ["employee_id"], name: "index_assignments_on_employee_id", using: :btree
     t.index ["trail_id"], name: "index_assignments_on_trail_id", using: :btree
   end
 
@@ -49,15 +49,7 @@ ActiveRecord::Schema.define(version: 20160915122356) do
     t.index ["trail_id"], name: "index_comments_on_trail_id", using: :btree
   end
 
-  create_table "notes", force: :cascade do |t|
-    t.integer  "trail_id"
-    t.text     "note_body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["trail_id"], name: "index_notes_on_trail_id", using: :btree
-  end
-
-  create_table "people", force: :cascade do |t|
+  create_table "employees", force: :cascade do |t|
     t.string   "avatar_url"
     t.string   "first_name"
     t.string   "last_name"
@@ -66,6 +58,14 @@ ActiveRecord::Schema.define(version: 20160915122356) do
     t.integer  "status",     default: 0, null: false
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+  end
+
+  create_table "notes", force: :cascade do |t|
+    t.integer  "trail_id"
+    t.text     "note_body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["trail_id"], name: "index_notes_on_trail_id", using: :btree
   end
 
   create_table "trails", force: :cascade do |t|
@@ -87,7 +87,7 @@ ActiveRecord::Schema.define(version: 20160915122356) do
     t.datetime "updated_at",                          null: false
   end
 
-  add_foreign_key "assignments", "people"
+  add_foreign_key "assignments", "employees"
   add_foreign_key "assignments", "trails"
   add_foreign_key "comments", "trails"
   add_foreign_key "notes", "trails"

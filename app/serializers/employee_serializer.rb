@@ -1,7 +1,18 @@
-class EmployeeSerializer < PersonSerializer
-  attributes :status, :status_code, :active_count, :pending_count
+class EmployeeSerializer < ActiveModel::Serializer
   
-  has_many :assignments, foreign_key: "person_id"
+  attributes  :id, 
+              :avatar_url, 
+              :first_name,
+              :last_name, 
+              :email,
+              :phone,
+              :status,
+              :status_code,
+              :active_count,
+              :pending_count
+
+  has_one :address  
+  has_many :assignments
   has_many :trails, through: :assignments
 
   def status_code

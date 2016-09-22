@@ -4,5 +4,4 @@ class CurrentEmployeesSerializer < ActiveModel::Serializer
   def status_code
     return Employee.statuses[object.status]
   end
-  
 end

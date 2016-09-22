@@ -33,7 +33,7 @@ export default Ember.Route.extend({
         theChosenOnes.forEach(function (aChosenOne) {
           _this.get('store').createRecord('assignment', {
             trail: newObject,
-            person: aChosenOne,
+            employee: aChosenOne,
             status: 'pending'
           });
         });

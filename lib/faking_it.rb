@@ -119,14 +119,12 @@ module FakingIt
         }.merge(options)
 
         t = Trail.new(attributes) 
-        add_notes(t, Random.rand(5))
-        add_comments(t, Random.rand(20))
+        add_notes(t, Random.rand(1..5))
+        add_comments(t, Random.rand(1..20))
         t.save
         Trail.where(id: t.id).update_all(updated_at: Faker::Time.backward(14, :all))
       end
-
       self.report.increment(:trails, count)
-      
     end
 
     def add_notes(trail, count)
@@ -164,7 +162,7 @@ module FakingIt
 
         coin_toss = Random.rand(1..2)
 
-        Assignment.create(person: e, trail: t, status: coin_toss)
+        Assignment.create(employee: e, trail: t, status: coin_toss)
       end
       self.report.increment(:assignments, count*3)      
     end

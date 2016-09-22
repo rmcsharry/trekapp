@@ -15,9 +15,7 @@ class TrailSerializer < ActiveModel::Serializer
               :layout_type,
               :difficulty_level,
               :publish_status,
-              :updated_at,
-              :notes_count,
-              :comments_count
+              :updated_at
 
   has_many :assignments
 

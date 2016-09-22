@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  resources :assignments
-  mount_ember_app :trekclient, to: "/"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
@@ -8,5 +6,8 @@ Rails.application.routes.draw do
   resources :addresses
   resources :trails
   resources :notes
-  resources :comments  
+  resources :comments
+  resources :assignments
+
+  mount_ember_app :trekclient, to: "/"
 end

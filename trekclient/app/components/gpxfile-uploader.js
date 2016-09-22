@@ -12,7 +12,6 @@ export default Ember.Component.extend({
   didInsertElement: function () {
     this._super(...arguments);
     let component = this;
-    let me = this.$();
     let child = this.$('div:nth-child(1)');
     let resetText = function () {
       child.html('<h2>Upload GPX Route</h2><div class="dropzone-body-text"><h5>Drag and Drop here</h5>- or -<h5>click anywhere here</h5></div>');
@@ -21,7 +20,7 @@ export default Ember.Component.extend({
       child.removeClass('is-dragging');
       child.html('<h2>Error - please try again</h2>' + '<h5 class="error-text">' + type + '<br/><br/>' + message + '</h5><h3>Drop another file or click me</h3>');
     };
-    filepicker.makeDropPane(me[0], {
+    filepicker.makeDropPane(this.$()[0], {
       multiple: false,
       extension: '.gpx',
       maxSize: (5 * 1024 * 1024),
@@ -31,7 +30,7 @@ export default Ember.Component.extend({
         child.html('<h2>Drop here</h2>');
       },
       onStart: function (files) {
-        // this is here for troubleshooting purposes so we can see what the user dropped
+        // this function is for troubleshooting purposes so we can see what the user dropped
         let obj = files[0]; // we only allow single uploads, so only expect one file in the array
         let result = null;
         $.each(obj, function (k, v) {
@@ -57,7 +56,6 @@ export default Ember.Component.extend({
         }
       },
       onError: function (type, message) {
-        //$("#localDropResult").text('('+type+') '+ message);
         showError(type, message);
       },
       onProgress: function (percentage) {
@@ -67,6 +65,9 @@ export default Ember.Component.extend({
   },
 
   actions: {
+    openFileInput () {
+      this.$('#fileInput').trigger('click');
+    },
     openFilePicker: function () {
       // reset dropzone (just in case there is an error showing already - TODO use a flag)
       let child = this.$('div:nth-child(1)');

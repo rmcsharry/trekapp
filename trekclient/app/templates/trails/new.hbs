@@ -12,13 +12,9 @@
         {{input type="text" value=model.trail.name class="form-control" placeholder="The name of this trail"}}
     </div>
   </div>
-
   <br/>
-  <div class="row">
-    <div class="col-xs-12 col-md-12">     
-      {{gpxfile-uploader uploadedFileUrl=model.trail.gpxFileUrl}}
-    </div>
-  </div>
+
+  {{gpxfile-uploader uploadedFileUrl=model.trail.gpxFileUrl}}
   <br/>
 
   <div class="form-group">
@@ -137,5 +133,8 @@ BUNCH OF FIELDS HERE
   <div class="col-xs-12 col-md-12 text-center">
     <button type="submit" class="btn btn-success" {{action 'save' model.trail}}>Save</button>
   </div>
+  <br/>
+  <br/>
+  &nbsp;
 </form>
 {{outlet}}

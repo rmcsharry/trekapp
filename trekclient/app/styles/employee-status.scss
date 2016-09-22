@@ -1,20 +1,20 @@
 // used to colour the different enum status for an employee
-.personStatus {
+.employeeStatus {
   display: inline;
 }
-.personStatus
+.employeeStatus
   .unknown {
     color: $gray-lightest;
   }
-.personStatus    
+.employeeStatus    
   .no-longer-employed {
     color: $gray-lighter;
   }
-.personStatus    
+.employeeStatus    
   .standby {
     color: $brand-warning;
   }
-.personStatus    
+.employeeStatus    
   .active {
     color: $brand-success;
   }

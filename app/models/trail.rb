@@ -7,7 +7,7 @@ class Trail < ApplicationRecord
   has_many :comments, dependent: :destroy
   
   has_many :assignments, dependent: :destroy
-  has_many :people, through: :assignments
+  has_many :employees, through: :assignments
 
   # NOTE: 'loop' is a reserved word, so we set prefix, as we must present it to the outside world as 'loop'
   # (if you create an enum called 'loop' without the prefix you will override Trail.loop default method)
