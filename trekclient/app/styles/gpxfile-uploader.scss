@@ -1,3 +1,4 @@
+
 .dropzone {
   height: 152px;
   //background-repeat: no-repeat;
@@ -24,4 +25,9 @@
   bottom: 0;
   left: 0;
   content: '';
+}
+.hiddenFileInput {
+  width: 0px;
+  height: 0px;
+  overflow: hidden;
 }

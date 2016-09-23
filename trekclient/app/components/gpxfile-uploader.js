@@ -11,81 +11,85 @@ export default Ember.Component.extend({
 
   didInsertElement: function () {
     this._super(...arguments);
-    let component = this;
-    let child = this.$('div:nth-child(1)');
-    let resetText = function () {
-      child.html('<h2>Upload GPX Route</h2><div class="dropzone-body-text"><h5>Drag and Drop here</h5>- or -<h5>click anywhere here</h5></div>');
-    };
-    let showError = function (type, message) {
-      child.removeClass('is-dragging');
-      child.html('<h2>Error - please try again</h2>' + '<h5 class="error-text">' + type + '<br/><br/>' + message + '</h5><h3>Drop another file or click me</h3>');
-    };
+    let _this = this;
+    let dropzone = $('#dropzone');
     filepicker.makeDropPane(this.$()[0], {
       multiple: false,
       extension: '.gpx',
       maxSize: (5 * 1024 * 1024),
-      dragEnter: function () {
-        console.log('enter');
-        child.addClass('is-dragging');
-        child.html('<h2>Drop here</h2>');
-      },
       onStart: function (files) {
         // this function is for troubleshooting purposes so we can see what the user dropped
-        let obj = files[0]; // we only allow single uploads, so only expect one file in the array
+        let obj = files[0]; // we only allow single uploads, hence expect one file in the array
         let result = null;
         $.each(obj, function (k, v) {
           result += k + " , " + v + "\n";
         });
         console.log('file dropped is:\n' + result); // note: type is always empty, so we don't know beforehand what the user dropped
       },
-      dragLeave: function () {
-        child.removeClass('is-dragging');
-        resetText();
+      dragEnter: function () {
+        dropzone.addClass('is-dragging');
+        dropzone.html('<h2>Drop here</h2>');
       },
-      onSuccess: function (Blobs) {
-        let result = Blobs[0]; // we only allow single uploads, so only expect one file in the array
-        //let mimeType = JSON.parse(result);
-        if (result.mimetype !== 'text/xml') {
-          let typeMsg = 'Wrong type - your file is of type "' + result.mimetype + '".';
-          let errorMsg = 'Please check the file in an editor. A GPX file should be of type "text/xml".';
-          showError(typeMsg, errorMsg);
-        }
-        else {
-          child.html('<h2>File successfully processed</h2><br/><h4>Please note the file will not be saved until you complete the form below.</h4>');
-          component.set('uploadedFileUrl', result['url']);
-        }
+      dragLeave: function () {
+        dropzone.removeClass('is-dragging');
+        dropzone.html('<h2>Upload GPX Route</h2><div class="dropzone-body-text"><h5>Drag and Drop here</h5>- or -<h5>click anywhere here</h5></div>');
+      },
+      onSuccess: function (files) {
+        _this.showResult(files[0], dropzone);
       },
       onError: function (type, message) {
-        showError(type, message);
+        _this.showError(type, message, dropzone);
       },
       onProgress: function (percentage) {
-        child.html('<h2>Processing (' + percentage + '%)</h2>');
+        _this.showProgress(percentage, dropzone);
       }
     });
   },
 
+  showResult: function (result, dropzone) {
+    console.log('Showing Result: ');
+    console.log(result);
+    if (result.mimetype !== 'text/xml') {
+      let typeMsg = 'Wrong type - your file is of type "' + result.mimetype + '".';
+      let errorMsg = 'Please check the file in an editor. A GPX file should be of type "text/xml".';
+      this.showError(typeMsg, errorMsg, dropzone);
+    }
+    else {
+      dropzone.html('<h2>File check finished</h2><br/><h4>Please note the file will not be saved until you complete the form below.</h4>');
+      this.set('uploadedFileUrl', result['url']);
+    }
+  },
+
+  showError: function (type, message, dropzone) {
+    dropzone.removeClass('is-dragging');
+    dropzone.html('<h2>Error - please try again</h2>' + '<h5 class="error-text">' + type + '<br/><br/>' + message + '</h5><h3>Drop another file or click me</h3>');
+  },
+
+  showProgress: function (percentage, dropzone) {
+    dropzone.html('<h2>Checking (' + percentage + '%)</h2>');
+  },
+
   actions: {
-    openFileInput () {
-      this.$('#fileInput').trigger('click');
+    openFileInput() {
+      this.$('#fileInput').trigger('click'); // this will open the hidden fileInput
     },
-    openFilePicker: function () {
-      // reset dropzone (just in case there is an error showing already - TODO use a flag)
-      let child = this.$('div:nth-child(1)');
-      child.removeClass('is-dragging');
-      child.html('<h2>Upload GPX Route</h2><div class="dropzone-body-text"><h5>Drag and Drop here</h5>- or -<h5>click anywhere here</h5></div>');
-      filepicker.pick({
-        container: 'modal',
-        maxSize: (5 * 1024 * 1024),
-        services: ['COMPUTER']
-      },
-        function (FPError) {
-          console.log(FPError.toString());
+
+    fileInputChanged: function () {
+      let _this = this;
+      let dropzone = $('#dropzone');
+      filepicker.store(
+        document.getElementById("fileInput"),
+        function(file) {
+          _this.showResult(file, dropzone);
         },
-        function (Blob) {
-          console.log("file is " + replaceHtmlChars(JSON.stringify(Blob)));
+        function (type, message) {
+          _this.showError(type, message, dropzone);
+        },
+        function (percentage) {
+          _this.showProgress(percentage, dropzone);
         }
       );
-    }
+    },
   }
 
 });

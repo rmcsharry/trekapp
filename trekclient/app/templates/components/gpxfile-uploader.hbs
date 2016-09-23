@@ -1,4 +1,4 @@
-<div class="dropzone text-center" {{action (action 'openFileInput')}}> 
+<div id="dropzone" class="dropzone text-center" {{action (action 'openFileInput')}}> 
   <h2>Upload GPX Route</h2>
   <div class="dropzone-body-text">
     <h5>Drag and Drop here</h5>    
@@ -7,6 +7,6 @@
   </div>
 </div>
 <!-- NOTE this is hidden and triggered on clicking the dropzoe -->
-<input id="fileInput" type="file" class="hiddenFileInput">
+<input id="fileInput" type="file" class="hiddenFileInput" onchange={{action 'fileInputChanged'}}>
 
 {{yield}}

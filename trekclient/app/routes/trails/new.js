@@ -22,10 +22,16 @@ export default Ember.Route.extend({
     });
   },
 
+  // http://balinterdi.com/2015/10/22/the-tale-of-two-bindings.html  
+  // validate(newObject) {
+  //   newObject.set('errors.required', newObject.get('isValid') ? null : 'Please complete required fields');
+  // },
+
   actions: {
     cancel: function() {
       this.transitionTo('trails');
     }, 
+
     save: function (newObject) {
       if (newObject.get('isValid')) {
         let theChosenOnes = this.controller.get('theChosenOnes');
