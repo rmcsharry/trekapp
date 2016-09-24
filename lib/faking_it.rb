@@ -110,8 +110,7 @@ module FakingIt
           region_type: Faker::StarWars.planet,
           agency: Faker::Space.agency,
           website_url: Faker::Internet.url,
-          distance_value: Faker::Number.decimal(2),
-          distance_unit: 'km',
+          distance: Faker::Number.decimal(2,2),
           layout_type: Random.rand(1..3),
           difficulty_level: Random.rand(1..3),
           publish_status: Random.rand(2)

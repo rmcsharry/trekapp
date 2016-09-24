@@ -9,9 +9,8 @@ class CreateTrails < ActiveRecord::Migration[5.0]
       t.string :country_code
       t.string :region_type
       t.string :agency
-      t.string :website_url      
-      t.string :distance_value
-      t.string :distance_unit
+      t.string :website_url    
+      t.decimal :distance, precision: 7, scale: 2  # stores I.S.U. of meters/metres
       t.integer :layout_type, default: 0, null: false # used for enum
       t.integer :publish_status, default: 0, null: false # used for enum
       t.integer :difficulty_level, default: 0, null: false # used for enum

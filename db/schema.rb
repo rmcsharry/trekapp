@@ -78,13 +78,12 @@ ActiveRecord::Schema.define(version: 20160915122356) do
     t.string   "region_type"
     t.string   "agency"
     t.string   "website_url"
-    t.string   "distance_value"
-    t.string   "distance_unit"
-    t.integer  "layout_type",             default: 0, null: false
-    t.integer  "publish_status",          default: 0, null: false
-    t.integer  "difficulty_level",        default: 0, null: false
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.decimal  "distance",                precision: 7, scale: 2
+    t.integer  "layout_type",                                     default: 0, null: false
+    t.integer  "publish_status",                                  default: 0, null: false
+    t.integer  "difficulty_level",                                default: 0, null: false
+    t.datetime "created_at",                                                  null: false
+    t.datetime "updated_at",                                                  null: false
   end
 
   add_foreign_key "assignments", "employees"

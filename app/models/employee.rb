@@ -5,7 +5,7 @@ class Employee < ApplicationRecord
   enum status: [:unknown, :no_longer_employed, :standby, :active]
   #scope :current, -> { where(status: [Employee.statuses[:active], Employee.statuses[:standby]]) }
 
-  has_one :address, :as => :addressable
+  has_one :address, as: :addressable
 
   has_many :assignments, dependent: :destroy
   has_many :trails, through: :assignments

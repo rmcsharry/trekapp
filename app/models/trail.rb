@@ -1,5 +1,7 @@
 class Trail < ApplicationRecord
   include ModelHooks
+  before_save :distance_to_m
+  after_find :distance_from_m
 
   default_scope { order("updated_at DESC") }
 
@@ -19,4 +21,14 @@ class Trail < ApplicationRecord
   def capitalizable_attrs
     ["name"]
   end
+
+  private
+  
+    def distance_to_m
+      self.distance = distance.to_f * 1000.to_f
+    end
+
+    def distance_from_m
+      self.distance = distance.to_f / 1000.to_f
+    end
 end
