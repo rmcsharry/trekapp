@@ -6,7 +6,6 @@ export default DS.Model.extend({
   lastName: DS.attr(),
   avatarUrl: DS.attr(),
   status: DS.attr(),
-  statusCode: DS.attr(),
   activeCount: DS.attr(),
   pendingCount: DS.attr(),
 
@@ -20,5 +19,5 @@ export default DS.Model.extend({
 
   // relationships
   address: DS.belongsTo('address'),
-  assignments: DS.hasMany('assignment', { async: true }),
+  assignments: DS.hasMany('assignment', { async: false }),
 });

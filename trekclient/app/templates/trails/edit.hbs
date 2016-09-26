@@ -15,17 +15,16 @@
   <br/>
 
   <div class="form-group">
-    <label class="col-xs-2 col-md-2 control-label">
-      GPX url
-    </label>
-    <div class="col-xs-10 col-md-10">
-        {{input type="text" value=model.trail.gpxFileUrl disabled=true class="form-control" placeholder="The GPX file location"}}
+    <div class="col-xs-12 col-md-12">
+      {{input type="text" value=model.trail.gpxFileUrl disabled=true class="form-control hideField" placeholder="The GPX file location"}}
     </div>
   </div>
   <hr/>
+  &nbsp;
 
 BUNCH OF FIELDS HERE
   <hr/>
+  &nbsp;
 
   <div class="form-group">
     <label class="col-xs-2 col-md-2 control-label">
@@ -38,45 +37,80 @@ BUNCH OF FIELDS HERE
 
   <div class="form-group">
     <label class="col-xs-2 col-md-2 control-label">
-      Trail distance (km)
+      Trail distance&nbsp;(km)
     </label>
     <div class="col-xs-10 col-md-10">
-        {{input type="number" value=model.trail.distance class="form-control" placeholder="The length of the trail"}}
+        {{input type="number" min="1" max="9999.99" step="0.1" value=model.trail.distance class="form-control" placeholder="The length of the trail"}}
     </div>
-  </div>  
+  </div> 
+  <div class="form-group">
+    <div class="col-xs-10 col-md-10 col-md-offset-2">
+      <ul class="layout-types">
+        <li>
+          {{#radio-button
+            name="layout-type-toggle"
+            radioId="out-and-back"
+            value="out_and_back"
+            groupValue=model.trail.layoutType
+            }}
+            <div class="btn btn-layout-type">
+              <h1><span class="glyphicon glyphicon-sort"></span></h1>
+              Out And Back
+            </div>
+          {{/radio-button}}
+        </li>
+        <li>
+          {{#radio-button
+            name="layout-type-toggle"
+            radioId="loop"
+            value="loop"
+            groupValue=model.trail.layoutType
+            }}
+            <div class="btn btn-layout-type">
+              <h1><span class="glyphicon glyphicon-retweet"></span></h1>
+              Loop
+            </div>
+          {{/radio-button}} 
+        </li>
+        <li>        
+          {{#radio-button
+            name="layout-type-toggle"
+            radioId="point-to-point"
+            value="point_to_point"
+            groupValue=model.trail.layoutType
+            }}
+            <div class="btn btn-layout-type">
+              <h1><span class="glyphicon glyphicon-resize-horizontal"></span></h1>        
+              Point to Point
+            </div>
+          {{/radio-button}}        
+        </li>                 
+      </ul>
+    </div>
+  </div>
   <hr/>
 
-  <!--<h3>Employees</h3>
-  {{#each model.trail.employee as |emp|}}
-    <h2>
-      Name: {{emp.fullName}}
-    </h2>
-  {{/each}}-->
-
-  <div class="form-group">
-    <label class="col-xs-2 col-md-2 control-label">
-      Assign to recording team member(s)
-    </label>
-    <div class="col-xs-10 col-md-10">
-      {{#power-select-multiple options=model.employees 
-        searchPlaceholder="Type a name to search"
-        searchField="fullName"
-        selected=model.trail.employee placeholder="Select team members"
-        onchange=(action (mut model.trail.employee)) as |employee| }}
-        {{employee.fullName}}
-      {{/power-select-multiple}}
-      <small>Type to search by name - press ENTER or CLICK to select. Repeat to add more people.</small>
-    </div>
-    <!--<div class="col-xs-5 col-md-5">
-      <button type="submit" class="pull-right btn btn-primary">Add new recording team member</button>
-    </div>-->
-  </div>
-  <div class="clearfix">
-  </div>
+  <h3>Assigned Employees</h3>
+  {{#each model.trail.assignments as |assignment|}}
+      <div class="vertical-align power-selected">
+        <div class="col-xs-3 col-md-2">
+            <img class="avatar-small" src="{{a.employee.avatarUrl}}" alt="An avatar or mugshot of this person">
+        </div>
+        <div class="col-xs-6 col-md-7">
+          <h5>{{assignment.employee.fullName}}</h5>
+        </div>
+        <div class="col-xs-3 col-md-3">
+          {{employee-status statusText=assignment.employee.status}}
+        </div>
+      </div>
+  {{/each}}
   <hr/>
 
   <div class="col-xs-12 col-md-12 text-center">
     <button type="submit" class="btn btn-success" {{action 'save' model.trail}}>Save</button>
   </div>
+  <br/>
+  <br/>
+  &nbsp;
 </form>
 {{outlet}}

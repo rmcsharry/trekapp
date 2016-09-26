@@ -33,7 +33,7 @@ class TrailsController < ApplicationController
 
   # PATCH/PUT /trails/1
   def update
-    if @trail.update(trail_params)
+    if @trail.update(trail_params.except(:notes_count, :comments_count))
       render json: @trail
     else
       render json: @trail.errors, status: :unprocessable_entity
