@@ -4,7 +4,7 @@ export default Ember.Component.extend({
   tagName: 'div',
 
   setup: Ember.on('init', function () {
-    filepicker.setKey('AN8H8yfYmRoWueVQmTIxNz'); // TODO get from server
+    filepicker.setKey(mykey); // TODO get from server
   }),
 
   uploadedFileUrl: null,
